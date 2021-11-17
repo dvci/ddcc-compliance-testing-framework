@@ -1,0 +1,13 @@
+{
+  "name": "ddcc-compliance-testing-framework",
+  "version": "0.0.1",
+  "description": "DDCC Compliance Testing Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^7.0.0",
+    "pactum": "^3.0.17"
+  }
+}
