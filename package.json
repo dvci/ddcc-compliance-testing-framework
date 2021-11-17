@@ -4,7 +4,8 @@
   "description": "DDCC Compliance Testing Framework",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "testlocal": "cucumber-js --profile local"
   },
   "dependencies": {
     "@cucumber/cucumber": "^7.0.0",
