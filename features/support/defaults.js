@@ -1,6 +1,12 @@
 const { request, settings } = require('pactum');
-const { Before, AfterAll }= require('@cucumber/cucumber');
+const { Before, BeforeAll, AfterAll }= require('@cucumber/cucumber');
 const { mock } = require('pactum');
+const mockConfig = require('./mockConfig.js');
+
+BeforeAll(function () {
+  // perform some shared setup
+  mockConfig.setup();
+});
 
 Before(function (testCase, callback) {
   request.setBaseUrl(this.parameters.appUrl);
@@ -16,5 +22,5 @@ Before(function (testCase, callback) {
 
 AfterAll(function () {
   // perform some shared teardown
-    return mock.stop();
+  mock.stop();
 });

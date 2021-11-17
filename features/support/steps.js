@@ -31,6 +31,10 @@ Given(/I set body to/, function (body) {
   spec.withBody(body);
 });
 
+Given(/I set json to the file at (.*)$/, function (fixture) {
+  spec.withJson(fixture);
+});
+
 Given(/^I upload file at (.*)$/, function (filePath) {
   spec.withFile(filePath);
 });

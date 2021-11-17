@@ -7,3 +7,8 @@ DDCC Compliance Testing Framework using Gherkin test scenarios.
 ```sh
 npm run test
 ```
+
+To run locally using mock server:
+```sh
+./node_modules/.bin/cucumber-js --profile local
+```
