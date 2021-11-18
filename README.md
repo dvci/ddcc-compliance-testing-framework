@@ -9,6 +9,7 @@ npm run test
 ```
 
 To run locally using mock server:
+
 ```sh
-./node_modules/.bin/cucumber-js --profile local
+npm run testlocal
 ```
