@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "eslint './**/*.js'",
     "lint:fix": "eslint './**/*.js' --fix",
-    "test": "cucumber-js",
-    "testlocal": "cucumber-js --profile local"
+    "start": "cucumber-js",
+    "test": "cucumber-js --profile local"
   },
   "dependencies": {
     "@cucumber/cucumber": "^7.0.0",

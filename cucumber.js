@@ -12,5 +12,5 @@ const common = `--world-parameters '${JSON.stringify(worldParameters)}'`;
 module.exports = {
   default: `${common} --format progress-bar --format html:./cucumber-report.html`,
   ci: `${common} --format html:./cucumber-report.html --publish`,
-  local: `--world-parameters '${JSON.stringify(worldParametersLocal)}' --format progress-bar --format html:./cucumber-report.html`
+  local: `--require 'test/**/*.js' --require 'features/**/*.js' --world-parameters '${JSON.stringify(worldParametersLocal)}' --format progress-bar --format html:./cucumber-report.html`
 };
