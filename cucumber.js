@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const worldParameters = {
   appUrl: process.env.BASE_APP_URL || 'http://localhost:4321',
+  generationServiceUrl: process.env.GENERATION_SERVICE_URL || 'http://localhost:4321',
   mockPort: process.env.MOCK_PORT || null
 };
 

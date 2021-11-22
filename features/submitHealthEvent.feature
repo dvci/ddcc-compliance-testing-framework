@@ -1,5 +1,7 @@
+@GenerationService
 Feature: Submit Health Event
 
+  @SubmitHealthEvent
   Scenario: Submit Valid Health Event
     Given I make a POST request to /submitHealthEvent
       And I set json to the file at ./features/fixtures/Bundle-DDCC-TX-SHE-bundle-example-1.json
