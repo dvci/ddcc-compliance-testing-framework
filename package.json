@@ -4,10 +4,20 @@
   "description": "DDCC Compliance Testing Framework",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
+    "lint": "eslint './**/*.js'",
+    "lint:fix": "eslint './**/*.js' --fix",
+    "start": "cucumber-js",
+    "test": "cucumber-js --profile local"
   },
   "dependencies": {
     "@cucumber/cucumber": "^7.0.0",
-    "pactum": "^3.0.17"
+    "dotenv": "^10.0.0",
+    "pactum": "^3.0.17",
+    "pactum-matchers": "^1.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3"
   }
 }
