@@ -1,7 +1,7 @@
+@RepositoryService
 Feature: Store Health Certificate
 
     Scenario: Submit Valid Store Health Certificate Transaction
-      # Get clarification on where to POST to
       Given I make a POST request to /Bundle
         And I set json to the file at ./features/fixtures/storeHealthCertificate/Bundle-DDCCDocument.json
       When I receive a response
@@ -10,6 +10,8 @@ Feature: Store Health Certificate
         And I expect response header Location should be /DDCCDocument/[id]/_history/[vid]
         # Need to replace [id] and [vid] with generated ids
         And I store response at /DDCCDocument/[id]/_history/[vid] as Bundle-DDCCDocument
+        # Validate via query that resource exists at expected location
+
 
     Scenario: Submit Storage Transaction With Bad Request
       Given I make a POST request to /Bundle
