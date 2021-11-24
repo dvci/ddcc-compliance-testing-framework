@@ -12,7 +12,7 @@ jobs:
         env:
           DISABLE_TX: 'false'
         volumes:
-          - ./igs:/home/igs
+          - /igs:/home/igs
         ports:
           - 4567:4567
      
