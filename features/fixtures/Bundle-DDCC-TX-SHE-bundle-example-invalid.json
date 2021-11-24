@@ -1,0 +1,10 @@
+{
+  "resourceType": "Bundle",
+  "id": "DDCC-TX-SHE-bundle-example-invalid",
+  "meta": {
+    "profile": [
+      "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventRequest"
+    ]
+  },
+  "type": "batch"
+}
