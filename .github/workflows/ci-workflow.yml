@@ -6,6 +6,19 @@ jobs:
   verify:
     name: Run Lint and Tests
     runs-on: ubuntu-latest
+    #container:
+    #  image: lucasalt/act_base:latest    
+    # Service containers to run with `runner-job`
+    services:
+      fhir-validator-service:
+        image: infernocommunity/fhir-validator-service
+        environment:
+          DISABLE_TX: 'false'
+        volumes:
+          - ./igs:/home/igs
+        ports:
+          - 4567:4567
+     
     steps:
     - uses: actions/checkout@v1
 

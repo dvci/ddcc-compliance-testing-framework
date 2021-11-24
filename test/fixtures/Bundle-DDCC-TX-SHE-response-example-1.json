@@ -6,6 +6,10 @@
       "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse"
     ]
   },
+  "identifier": {
+    "system": "urn:EXAMPLE-who-:ddcc:bundle:ids",
+    "value": "9990123012301230123"
+  },
   "type": "batch-response",
   "entry": [
     {
@@ -287,6 +291,9 @@
             }
           }
         ]
+      },
+      "response" : {
+        "status" : "201"
       }
     }
   ]
