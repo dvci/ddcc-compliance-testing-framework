@@ -24,7 +24,7 @@ npm run test
 
 ### Run FHIR Validator Service (optional)
 ```sh
-docker-compse up -d
+docker-compose up -d
 ```
 
 ### Configuration settings
