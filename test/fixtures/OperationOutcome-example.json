@@ -1,0 +1,10 @@
+{
+  "resourceType": "OperationOutcome",
+  "id": "OperationOutcome-example",
+  "issue": [
+    {
+      "severity": "error",
+      "code": "required"
+    }
+  ]
+}
