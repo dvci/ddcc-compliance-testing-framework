@@ -2,10 +2,17 @@ require('dotenv').config();
 
 const worldParameters = {
   appUrl: process.env.BASE_APP_URL || 'http://localhost:4321',
+  generationServiceUrl: process.env.GENERATION_SERVICE_URL || 'http://localhost:4321',
+  authorizationHeader: process.env.AUTH_HEADER || null,
+  validatorServiceUrl: process.env.VALIDATOR_SERVICE_URL || null,
   mockPort: process.env.MOCK_PORT || null
 };
 
-const worldParametersLocal = { ...worldParameters, mockPort: 4321 };
+const worldParametersLocal = {
+  ...worldParameters,
+  validatorServiceUrl: 'http://localhost:4567/validate',
+  mockPort: 4321
+};
 
 const common = `--world-parameters '${JSON.stringify(worldParameters)}'`;
 

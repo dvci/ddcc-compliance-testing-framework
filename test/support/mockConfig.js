@@ -1,5 +1,6 @@
 const { mock } = require('pactum');
 const { like } = require('pactum-matchers');
+const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
 
 const config = {
   setup() {
@@ -16,7 +17,7 @@ const config = {
       },
       response: {
         status: 201,
-        body: 'Hello, 👋'
+        body: sheResponse
       }
     });
   }

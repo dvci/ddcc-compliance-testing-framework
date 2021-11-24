@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  validator_service:
+    image: infernocommunity/fhir-validator-service
+    environment:
+      DISABLE_TX: 'false'
+    volumes:
+      - ./igs:/home/igs
+    ports:
+      - "4567:4567"

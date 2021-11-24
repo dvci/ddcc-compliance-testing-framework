@@ -5,8 +5,13 @@ const {
 
 let spec = pactum.spec();
 
-Before(() => {
+// eslint-disable-next-line prefer-arrow-callback
+Before(function () {
   spec = pactum.spec();
+  this.spec = spec;
+  if (this.parameters.authorizationHeader !== null) {
+    spec.withHeaders('Authorization', this.parameters.authorizationHeader);
+  }
 });
 
 Given(/^I make a (.*) request to (.*)$/, (method, endpoint) => {
@@ -31,10 +36,6 @@ Given(/^I set header (.*) to (.*)$/, (key, value) => {
 
 Given(/I set body to/, (body) => {
   spec.withBody(body);
-});
-
-Given(/I set json to the file at (.*)$/, (fixture) => {
-  spec.withJson(fixture);
 });
 
 Given(/^I upload file at (.*)$/, (filePath) => {
