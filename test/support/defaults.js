@@ -4,7 +4,7 @@ const { like } = require('pactum-matchers');
 const mockConfig = require('./mockConfig');
 
 const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
-const sheResponseError = require('../fixtures/OperationOutcome-example.json');
+const operationOutcomeError = require('../fixtures/OperationOutcome-example.json');
 const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
 
 BeforeAll(() => {
@@ -54,7 +54,7 @@ Before({ tags: '@SubmitInvalidHealthEvent' }, () => {
     },
     response: {
       status: 422,
-      body: sheResponseError
+      body: operationOutcomeError
     }
   }]);
 });
@@ -74,6 +74,25 @@ Before({ tags: '@GenerateHealthCertificate' }, () => {
     response: {
       status: 201,
       body: ddccDocument
+    }
+  }]);
+});
+
+Before({ tags: '@GenerateHealthCertificateInvalid' }, () => {
+  mock.addInteraction([{
+    id: 'generateHealthCertificate',
+    strict: false,
+    request: {
+      method: 'POST',
+      path: '/QuestionnaireResponse/$generateHealthCertificate',
+      body: {
+        resourceType: like('Parameters'),
+        id: like('DDCC-VS-TX-SHE-Parameters-1-invalid')
+      }
+    },
+    response: {
+      status: 422,
+      body: operationOutcomeError
     }
   }]);
 });
