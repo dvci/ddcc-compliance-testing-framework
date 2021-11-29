@@ -8,44 +8,6 @@ Feature: Submit Health Event
      When I receive a response
      Then I expect response should have a status 201
       And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse
-      And I expect response should have a json schema
-      """
-      {
-        "type": "object",
-        "properties": {
-          "entry": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "response": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string"
-                    },
-                    "location:": {
-                      "type": "string"
-                    },
-                    "etag:": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "status",
-                    "location",
-                    "etag"
-                  ]
-                }
-              },
-              "required": [
-                "response"
-              ]
-            }
-          }
-        }
-      }
-      """
 
   @SubmitInvalidHealthEvent
   Scenario: Submit Invalid Health Event
