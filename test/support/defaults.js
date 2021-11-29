@@ -42,7 +42,7 @@ Before({ tags: '@StoreHealthCertificate' }, () => {
   });
 });
 
-Before({ tags: '@StoreHealthCertificate-400' }, () => {
+Before({ tags: '@StoreInvalidHealthCertificate-400' }, () => {
   mock.addInteraction({
     id: 'storeHealthCertificate-400',
     strict: false,
@@ -58,9 +58,24 @@ Before({ tags: '@StoreHealthCertificate-400' }, () => {
   });
 });
 
-Before({ tags: '@StoreHealthCertificate-404-1' }, () => {
+Before({ tags: '@StoreInvalidHealthCertificate-404-1' }, () => {
   mock.addInteraction({
     id: 'storeHealthCertificate-404-1',
+    strict: false,
+    request: {
+      method: 'POST',
+      path: '/INVALIDENDPOINT',
+    },
+    response: {
+      status: 404,
+      body: operationOutcomeError,
+    },
+  });
+});
+
+Before({ tags: '@StoreInvalidHealthCertificate-404-2' }, () => {
+  mock.addInteraction({
+    id: 'storeHealthCertificate-404-2',
     strict: false,
     request: {
       method: 'POST',
@@ -76,22 +91,7 @@ Before({ tags: '@StoreHealthCertificate-404-1' }, () => {
   });
 });
 
-Before({ tags: '@StoreHealthCertificate-404-2' }, () => {
-  mock.addInteraction({
-    id: 'storeHealthCertificate-404',
-    strict: false,
-    request: {
-      method: 'POST',
-      path: '/INVALIDENDPOINT',
-    },
-    response: {
-      status: 404,
-      body: operationOutcomeError,
-    },
-  });
-});
-
-Before({ tags: '@StoreHealthCertificate-422' }, () => {
+Before({ tags: '@StoreInvalidHealthCertificate-422' }, () => {
   mock.addInteraction({
     id: 'storeHealthCertificate-422',
     strict: false,
@@ -129,9 +129,9 @@ Before({ tags: '@RegisterHealthCertificate' }, () => {
   });
 });
 
-Before({ tags: '@RegisterInvalidHealthCertificate' }, () => {
+Before({ tags: '@RegisterInvalidHealthCertificate-422' }, () => {
   mock.addInteraction({
-    id: 'registerInvalidHealthCertificate',
+    id: 'registerInvalidHealthCertificate-422',
     strict: false,
     request: {
       method: 'POST',
@@ -143,6 +143,25 @@ Before({ tags: '@RegisterInvalidHealthCertificate' }, () => {
     },
     response: {
       status: 422,
+      body: operationOutcomeError,
+    },
+  });
+});
+
+Before({ tags: '@RegisterInvalidHealthCertificate-400' }, () => {
+  mock.addInteraction({
+    id: 'registerInvalidHealthCertificate-400',
+    strict: false,
+    request: {
+      method: 'POST',
+      path: '/',
+      body: {
+        resourceType: like('Bundle'),
+        id: like('ex-minimalProvideDocumentBundleSimple-invalid'),
+      },
+    },
+    response: {
+      status: 400,
       body: operationOutcomeError,
     },
   });

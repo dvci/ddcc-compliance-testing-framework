@@ -14,7 +14,7 @@ Feature: Store Health Certificate
     @StoreInvalidHealthCertificate-400
     Scenario: Submit Storage Transaction With Bad Request
       Given I make a POST request to /Bundle
-        And I set body to {}
+        And I set json body to the file at ./features/fixtures/storeHealthCertificate/Bundle-DDCCDocument-400.json
       When I receive a response
       Then I expect response should have a status 400
         And I expect response should validate against the profile http://hl7.org/fhir/StructureDefinition/OperationOutcome
