@@ -16,7 +16,10 @@ Feature: Generate Health Certificate
           "signature": {
             "type": "object"
           }
-        }
+        },
+        "required": [
+          "signature"
+        ]
       }
       """
 
