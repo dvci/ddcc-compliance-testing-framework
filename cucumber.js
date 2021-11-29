@@ -10,10 +10,10 @@ const worldParameters = {
   mockPort: process.env.MOCK_PORT || null
 };
 
-const common = `--world-parameters '${JSON.stringify(worldParameters)}'`;
+const common = `--world-parameters '${JSON.stringify(worldParameters)}' --format html:./cucumber-report.html --publish-quiet`;
 
 module.exports = {
-  default: `${common} --format progress-bar --format html:./cucumber-report.html`,
-  ci: `${common} --format html:./cucumber-report.html --publish`,
-  test: `--require 'test/**/*.js' --require 'features/**/*.js' ${common} --format progress-bar --format html:./cucumber-report.html`
+  default: `${common} --format progress-bar`,
+  ci: `${common}`,
+  test: `${common} --require 'test/**/*.js' --require 'features/**/*.js' --format progress-bar`
 };
