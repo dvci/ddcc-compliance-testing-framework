@@ -1,0 +1,16 @@
+{
+  "resourceType": "Bundle",
+  "id": "ex-minimalProvideDocumentBundleSimple-invalid",
+  "meta": {
+    "profile": [
+      "http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Minimal.ProvideBundle"
+    ],
+    "security": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST"
+      }
+    ]
+  },
+  "type": "transaction"
+}
