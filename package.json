@@ -7,7 +7,7 @@
     "lint": "eslint './**/*.js'",
     "lint:fix": "eslint './**/*.js' --fix",
     "start": "cucumber-js",
-    "test": "cucumber-js --profile local"
+    "test": "NODE_ENV=test cucumber-js --profile test"
   },
   "dependencies": {
     "@cucumber/cucumber": "^7.0.0",

@@ -1,16 +1,19 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
+});
 
 const worldParameters = {
   appUrl: process.env.BASE_APP_URL || 'http://localhost:4321',
+  generationServiceUrl: process.env.GENERATION_SERVICE_URL || 'http://localhost:4321',
+  authorizationHeader: process.env.AUTH_HEADER || null,
+  validatorServiceUrl: process.env.VALIDATOR_SERVICE_URL || null,
   mockPort: process.env.MOCK_PORT || null
 };
 
-const worldParametersLocal = { ...worldParameters, mockPort: 4321 };
-
-const common = `--world-parameters '${JSON.stringify(worldParameters)}'`;
+const common = `--world-parameters '${JSON.stringify(worldParameters)}' --format html:./cucumber-report.html --publish-quiet`;
 
 module.exports = {
-  default: `${common} --format progress-bar --format html:./cucumber-report.html`,
-  ci: `${common} --format html:./cucumber-report.html --publish`,
-  local: `--require 'test/**/*.js' --require 'features/**/*.js' --world-parameters '${JSON.stringify(worldParametersLocal)}' --format progress-bar --format html:./cucumber-report.html`
+  default: `${common} --format progress-bar`,
+  ci: `${common}`,
+  test: `${common} --require 'test/**/*.js' --require 'features/**/*.js' --format progress-bar`
 };
