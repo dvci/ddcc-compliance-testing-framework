@@ -13,6 +13,7 @@ Feature: Store Health Certificate
     @StoreInvalidHealthCertificate-400
     Scenario: Submit Storage Transaction With Bad Request
       Given I make a POST request to /Bundle
+        # Bundle missing type attribute (fails basic FHIR validation rules)
         And I set json body to the file at ./features/fixtures/storeHealthCertificate/Bundle-DDCCDocument-400.json
       When I receive a response
       Then I expect response should have a status 400
@@ -28,6 +29,7 @@ Feature: Store Health Certificate
     @StoreInvalidHealthCertificate-404-2
     Scenario: Submit Storage Transaction With Invalid Resource Type
       Given I make a POST request to /Bundle
+        # JSON containing invalid resource type
         And I set json body to the file at ./features/fixtures/storeHealthCertificate/Bundle-DDCCDocument-404.json
       When I receive a response
       Then I expect response should have a status 404
@@ -36,6 +38,7 @@ Feature: Store Health Certificate
     @StoreInvalidHealthCertificate-422
     Scenario: Submit Invalid Profile Storage Transaction
       Given I make a POST request to /Bundle
+        # Bundle missing required entries (violates the profile)
         And I set json body to the file at ./features/fixtures/storeHealthCertificate/Bundle-DDCCDocument-422.json
       When I receive a response
       Then I expect response should have a status 422

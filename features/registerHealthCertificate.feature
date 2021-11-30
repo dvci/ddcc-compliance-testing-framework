@@ -12,6 +12,7 @@ Feature: Register Health Certificate
     @RegisterInvalidHealthCertificate-400
     Scenario: Submit Bad Request Register Health Certificate Transaction
         Given I make a POST request to /
+            # Bundle missing type attribute (fails basic FHIR validation rules)
             And I set json body to the file at ./features/fixtures/registerHealthCertificate/Bundle-ProvideDDCCDocument-400.json
         When I receive a response  
         Then I expect response should have a status 400
@@ -20,6 +21,7 @@ Feature: Register Health Certificate
     @RegisterInvalidHealthCertificate-422
     Scenario: Submit Invalid Register Health Certificate Transaction
         Given I make a POST request to /
+            # Bundle missing required entries (violates the profile)
             And I set json body to the file at ./features/fixtures/registerHealthCertificate/Bundle-ProvideDDCCDocument-422.json
         When I receive a response
         Then I expect response should have a status 422

@@ -35,8 +35,8 @@ const config = {
           method: 'POST',
           path: '/Bundle',
           body: {
-            resourceType: like('Bundle'),
-            id: 'DDCC-Document-Invalid',
+            resourceType: 'Bundle',
+            id: 'Bundle-DDCCDocument-400',
           },
         },
         response: {
@@ -78,8 +78,8 @@ const config = {
           method: 'POST',
           path: '/Bundle',
           body: {
-            resourceType: like('Bundle'),
-            id: 'DDCC-Document-Invalid',
+            resourceType: 'Bundle',
+            id: 'Bundle-DDCCDocument-422',
             type: 'document',
           },
         },
@@ -166,7 +166,7 @@ const config = {
           method: 'POST',
           path: '/',
           body: {
-            resourceType: like('Bundle'),
+            resourceType: 'Bundle',
             id: like('ex-minimalProvideDocumentBundleSimple'),
             type: 'transaction',
           },
@@ -183,8 +183,8 @@ const config = {
           method: 'POST',
           path: '/',
           body: {
-            resourceType: like('Bundle'),
-            id: 'ex-minimalProvideDocumentBundleSimple-invalid',
+            resourceType: 'Bundle',
+            id: 'Bundle-ProvideDDCCDocument-422',
             type: 'transaction',
           },
         },
@@ -200,8 +200,8 @@ const config = {
           method: 'POST',
           path: '/',
           body: {
-            resourceType: like('Bundle'),
-            id: 'ex-minimalProvideDocumentBundleSimple-invalid-no-type',
+            resourceType: 'Bundle',
+            id: 'Bundle-ProvideDDCCDocument-400',
           },
         },
         response: {
