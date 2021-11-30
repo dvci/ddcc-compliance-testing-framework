@@ -10,21 +10,24 @@ Docker (optional)
 
 ## Running Tests
 
-### Run Cucumber tests
+### Run Cucumber compliance tests
 
 ```sh
 npm start
 ```
 
-### Run Cucumber tests locally using mock server
+### Run Cucumber unit tests locally using mock server
+Test configuration is provided in '.env.test' file. If validator service is not available on port 4567, remove or edit the VALIDATOR_SERVICE_URL default variable.
 
 ```sh
 npm run test
 ```
 
 ### Run FHIR Validator Service (optional)
+Starts FHIR validator service in Docker on port 4567.
+
 ```sh
-docker-compse up -d
+docker-compose up -d
 ```
 
 ### Configuration settings
