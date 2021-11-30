@@ -1,6 +1,6 @@
 {
   "resourceType": "Bundle",
-  "id": "Example-English",
+  "id": "DDCC-Document-Invalid",
   "meta": {
     "profile": [
       "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCDocument"

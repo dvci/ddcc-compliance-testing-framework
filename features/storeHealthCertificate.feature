@@ -7,9 +7,8 @@ Feature: Store Health Certificate
         And I set json body to the file at ./features/fixtures/storeHealthCertificate/Bundle-DDCCDocument.json
       When I receive a response
       Then I expect response should have a status 201
-        And I expect response header location should be /DDCCDocument/TESTID/_history/TESTVERSION
-        And I store response at /DDCCDocument/TESTID/_history/TESTVERSION as Bundle-DDCCDocument
-        # Validate via query that resource exists at expected location
+        And I expect response header location should be /DDCCDocument/TESTID
+        And I store response at /DDCCDocument/TESTID as Bundle-DDCCDocument
 
     @StoreInvalidHealthCertificate-400
     Scenario: Submit Storage Transaction With Bad Request

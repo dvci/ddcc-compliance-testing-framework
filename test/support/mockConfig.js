@@ -10,6 +10,85 @@ const config = {
   setup() {
     mock.addInteraction([
       {
+        id: 'storeHealthCertificate',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/Bundle',
+          body: {
+            resourceType: 'Bundle',
+            id: like('Example-English'),
+            type: 'document',
+          },
+        },
+        response: {
+          status: 201,
+          headers: {
+            location: '/DDCCDocument/TESTID',
+          },
+        },
+      },
+      {
+        id: 'storeInvalidHealthCertificate-400',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/Bundle',
+          body: {
+            resourceType: like('Bundle'),
+            id: 'DDCC-Document-Invalid',
+          },
+        },
+        response: {
+          status: 400,
+          body: operationOutcomeError,
+        },
+      },
+      {
+        id: 'storeInvalidHealthCertificate-404-1',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/INVALIDENDPOINT',
+        },
+        response: {
+          status: 404,
+          body: operationOutcomeError,
+        },
+      },
+      {
+        id: 'storeInvalidHealthCertificate-404-2',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/Bundle',
+          body: {
+            resourceType: 'INVALIDTYPE',
+          },
+        },
+        response: {
+          status: 404,
+          body: operationOutcomeError,
+        },
+      },
+      {
+        id: 'storeInvalidHealthCertificate-422',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/Bundle',
+          body: {
+            resourceType: like('Bundle'),
+            id: 'DDCC-Document-Invalid',
+            type: 'document',
+          },
+        },
+        response: {
+          status: 422,
+          body: operationOutcomeError,
+        },
+      },
+      {
         id: 'submitValidHealthEvent',
         strict: false,
         request: {
@@ -77,6 +156,56 @@ const config = {
         },
         response: {
           status: 422,
+          body: operationOutcomeError,
+        },
+      },
+      {
+        id: 'registerHealthCertificate',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/',
+          body: {
+            resourceType: like('Bundle'),
+            id: like('ex-minimalProvideDocumentBundleSimple'),
+            type: 'transaction',
+          },
+        },
+        response: {
+          status: 200,
+          body: rhcResponse,
+        },
+      },
+      {
+        id: 'registerInvalidHealthCertificate-422',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/',
+          body: {
+            resourceType: like('Bundle'),
+            id: 'ex-minimalProvideDocumentBundleSimple-invalid',
+            type: 'transaction',
+          },
+        },
+        response: {
+          status: 422,
+          body: operationOutcomeError,
+        },
+      },
+      {
+        id: 'registerInvalidHealthCertificate-400',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/',
+          body: {
+            resourceType: like('Bundle'),
+            id: 'ex-minimalProvideDocumentBundleSimple-invalid-no-type',
+          },
+        },
+        response: {
+          status: 400,
           body: operationOutcomeError,
         },
       },

@@ -1,6 +1,6 @@
 {
   "resourceType": "Bundle",
-  "id": "ex-minimalProvideDocumentBundleSimple",
+  "id": "ex-minimalProvideDocumentBundleSimple-invalid-no-type",
   "meta": {
     "profile": [
       "http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Minimal.ProvideBundle"
