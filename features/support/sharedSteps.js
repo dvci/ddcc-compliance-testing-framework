@@ -43,25 +43,3 @@ Then(
     return Promise.resolve();
   }
 );
-
-// TODO: Clean up this step
-Then(
-  /I expect AuditEvent resource to be created with ID (.*)$/,
-  async function (id) {
-    const response = await pactum
-      .spec()
-      .get(`${this.parameters.validatorServiceUrl}/AuditEvent/${id}`);
-
-    if (response.statusCode !== 200) {
-      Promise.reject(
-        new Error(
-          `Error executing FHIR validator service: ${response.statusMessage}`
-        )
-      );
-    }
-
-    // add pactum.expect statements for what the Audit Event should look like
-    // should we be looking for a certain ID?
-    return Promise.resolve();
-  }
-);
