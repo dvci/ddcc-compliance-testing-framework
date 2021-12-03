@@ -7,6 +7,7 @@ Feature: Register Health Certificate
             And I set json body to the file at ./features/fixtures/registerHealthCertificate/Bundle-ProvideDDCCDocument.json
         When I receive a response
         Then I expect response should have a status 200
+            And I expect a response entry exists for each request entry List, DocumentReference, Binary, Patient
             And I expect response should validate against the profile http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.ProvideDocumentBundleResponse
             # Check that at least one entry exists in response for each entry in request, in same order
             # Check each entry in response has a response location

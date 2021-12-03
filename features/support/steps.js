@@ -2,6 +2,7 @@ const pactum = require('pactum');
 const {
   Given, When, Then, Before, After
 } = require('@cucumber/cucumber');
+const { includes } = require('pactum-matchers');
 
 let spec = pactum.spec();
 
@@ -100,6 +101,20 @@ Then('I expect response should have {string}', (handler) => {
 Then(/^I store response at (.*) as (.*)$/, (path, name) => {
   spec.stores(name, path);
 });
+
+Then(
+  /I expect a response entry exists for each request entry (.*)/,
+  (resources) => {
+    const resourceList = resources.split(',').map((value) => value.trim());
+    const numResources = resourceList.length;
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < numResources; i++) {
+      spec.response().should.have.jsonMatch(`entry[${i}]`, {
+        response: { location: includes(resourceList[i]) },
+      });
+    }
+  }
+);
 
 After(() => {
   spec.end();
