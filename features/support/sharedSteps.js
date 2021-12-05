@@ -1,6 +1,7 @@
 const pactum = require('pactum');
 const { expression } = require('pactum-matchers');
-const { Given, Then } = require('@cucumber/cucumber');
+const { Given, Then, Before } = require('@cucumber/cucumber');
+const { includes } = require('pactum-matchers');
 
 // eslint-disable-next-line prefer-arrow-callback
 Given(/I set json body to the file at (.*)$/, function (fixture) {
@@ -41,5 +42,20 @@ Then(
         expression(null, '!$V.includes("error")')
       );
     return Promise.resolve();
+  }
+);
+
+// eslint-disable-next-line prefer-arrow-callback
+Then(
+  /I expect a response entry exists for each request entry (.*)/,
+  function (resources) {
+    const resourceList = resources.split(',').map((value) => value.trim());
+    const numResources = resourceList.length;
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < numResources; i++) {
+      this.spec.response().should.have.jsonMatch(`entry[${i}]`, {
+        response: { location: includes(resourceList[i]) },
+      });
+    }
   }
 );

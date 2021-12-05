@@ -24,7 +24,7 @@ const config = {
         response: {
           status: 201,
           headers: {
-            location: '/DDCCDocument/TESTID',
+            Location: '/DDCCDocument/TESTID',
           },
         },
       },
