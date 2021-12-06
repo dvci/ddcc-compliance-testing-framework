@@ -1,0 +1,9 @@
+{
+  "resourceType": "Parameters",
+  "id": "DDCC-VS-TX-SHE-Parameters-1-invalid",
+  "meta": {
+    "profile": [
+      "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCGenerateHealthCertificateParameters"
+    ]
+  }
+}

@@ -293,7 +293,9 @@
         ]
       },
       "response" : {
-        "status" : "201"
+        "status" : "201",
+        "location": "someLocation",
+        "etag": "someEtag"
       }
     }
   ]
