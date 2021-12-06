@@ -1,8 +1,10 @@
 const { mock } = require('pactum');
 const { like, oneOf } = require('pactum-matchers');
 
+const operationOutcomeRequired = require('../fixtures/OperationOutcome/OperationOutcome-required.json');
+const operationOutcomeNotFound = require('../fixtures/OperationOutcome/OperationOutcome-not-found.json');
+const operationOutcomeInvalid = require('../fixtures/OperationOutcome/OperationOutcome-invalid.json');
 const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
-const operationOutcomeError = require('../fixtures/OperationOutcome-example.json');
 const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
 const rhcResponse = require('../fixtures/Response-ProvideDDCCDocument.json');
 
@@ -41,7 +43,7 @@ const config = {
         },
         response: {
           status: 400,
-          body: operationOutcomeError,
+          body: operationOutcomeRequired,
         },
       },
       {
@@ -53,7 +55,7 @@ const config = {
         },
         response: {
           status: 404,
-          body: operationOutcomeError,
+          body: operationOutcomeNotFound,
         },
       },
       {
@@ -68,7 +70,7 @@ const config = {
         },
         response: {
           status: 404,
-          body: operationOutcomeError,
+          body: operationOutcomeNotFound,
         },
       },
       {
@@ -85,7 +87,7 @@ const config = {
         },
         response: {
           status: 422,
-          body: operationOutcomeError,
+          body: operationOutcomeInvalid,
         },
       },
       {
@@ -119,7 +121,7 @@ const config = {
         },
         response: {
           status: 422,
-          body: operationOutcomeError,
+          body: operationOutcomeRequired,
         },
       },
       {
@@ -156,7 +158,7 @@ const config = {
         },
         response: {
           status: 422,
-          body: operationOutcomeError,
+          body: operationOutcomeRequired,
         },
       },
       {
@@ -190,7 +192,7 @@ const config = {
         },
         response: {
           status: 422,
-          body: operationOutcomeError,
+          body: operationOutcomeInvalid,
         },
       },
       {
@@ -206,7 +208,7 @@ const config = {
         },
         response: {
           status: 400,
-          body: operationOutcomeError,
+          body: operationOutcomeRequired,
         },
       },
     ]);

@@ -1,10 +1,10 @@
 {
   "resourceType": "OperationOutcome",
-  "id": "OperationOutcome-example",
+  "id": "OperationOutcome-not-found",
   "issue": [
     {
       "severity": "error",
-      "code": "required"
+      "code": "not-found"
     }
   ]
 }

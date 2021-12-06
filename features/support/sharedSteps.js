@@ -1,6 +1,6 @@
 const pactum = require('pactum');
 const { expression } = require('pactum-matchers');
-const { Given, Then, Before } = require('@cucumber/cucumber');
+const { Given, Then } = require('@cucumber/cucumber');
 const { includes } = require('pactum-matchers');
 
 // eslint-disable-next-line prefer-arrow-callback
