@@ -27,3 +27,7 @@ Then(/I expect response should validate against the profile (.*)$/, async functi
   pactum.expect(response).to.have.jsonMatch('issue[*].severity', expression(null, '!$V.includes("error")'));
   return Promise.resolve();
 });
+
+Then(/I expect response should have value (.*) at path (.*)/, function (value, path) {
+  this.spec.response().should.have.jsonMatch(path, value);
+});
