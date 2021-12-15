@@ -1,7 +1,7 @@
-@RepositoryService
+@StoreHealthCertificate
 Feature: Store Health Certificate
 
-  @StoreHealthCertificate
+  @StoreHealthCertificate-valid
   Scenario: Submit Valid Store Health Certificate Transaction
     Given I make a POST request to /Bundle
       And I set json body to the file at ./features/fixtures/storeHealthCertificate/Bundle-DDCCDocument.json

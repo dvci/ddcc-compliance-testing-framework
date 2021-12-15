@@ -1,15 +1,15 @@
-@RegistryService
+@RegisterHealthCertificate
 Feature: Register Health Certificate
 
-  @RegisterHealthCertificate
+  @RegisterHealthCertificate-valid
   Scenario: Submit Valid Register Health Certificate Transaction
     Given I make a POST request to /
       And I set json body to the file at ./features/fixtures/registerHealthCertificate/Bundle-ProvideDDCCDocument.json
     When I receive a response
     Then I expect response should have a status 200
       # Check that an entry exists in response for each entry in request, in same order
-      And I expect response should validate against the profile http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.ProvideDocumentBundleResponse
-      And I expect a response entry exists for each request entry List, DocumentReference, Binary, Patient
+      And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCProvideDocumentBundle
+      And I expect a response entry exists for each request entry in same order
             
   @RegisterInvalidHealthCertificate-400
   Scenario: Submit Bad Request Register Health Certificate Transaction
