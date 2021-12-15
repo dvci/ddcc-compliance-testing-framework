@@ -9,7 +9,7 @@ const worldParameters = {
   generationServiceUrl:
     process.env.GENERATION_SERVICE_URL || 'http://localhost:4321',
   repositoryServiceUrl:
-    process.env.RESPOSITORY_SERVICE_URL || 'http://localhost:4321',
+    process.env.REPOSITORY_SERVICE_URL || 'http://localhost:4321',
   registryServiceUrl:
     process.env.REGISTRY_SERVICE_URL || 'http://localhost:4321',
   mockPort: process.env.MOCK_PORT || null,
