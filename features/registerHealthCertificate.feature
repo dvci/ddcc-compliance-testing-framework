@@ -8,7 +8,6 @@ Feature: Register Health Certificate
     When I receive a response
     Then I expect response should have a status 200
       # Check that an entry exists in response for each entry in request, in same order
-      And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCProvideDocumentBundle
       And I expect a response entry exists for each request entry in same order
             
   @RegisterInvalidHealthCertificate-400
