@@ -9,3 +9,18 @@ services:
       - ./igs:/home/igs
     ports:
       - "4567:4567"
+
+  matchbox:
+    image: eu.gcr.io/fhir-ch/matchbox:v141
+    environment:
+      - hapi.fhir.implementationguides.0.name=hl7.fhir.uv.sdc
+      - hapi.fhir.implementationguides.0.version=2.7.0
+      - hapi.fhir.implementationguides.1.name=ihe.mhd.fhir
+      - hapi.fhir.implementationguides.1.version=4.0.1 
+      - hapi.fhir.implementationguides.2.url=https://worldhealthorganization.github.io/ddcc/refs/heads/ddcc-tr/package.tgz
+      - hapi.fhir.implementationguides.2.name=fhir.who.ddcc-vs
+      - hapi.fhir.implementationguides.2.version=0.3.1
+      - hapi.fhir.implementationguides.3.name=hl7.fhir.uv.ips
+      - hapi.fhir.implementationguides.3.version=1.0.0  
+    ports:
+      - "8080:8080"
