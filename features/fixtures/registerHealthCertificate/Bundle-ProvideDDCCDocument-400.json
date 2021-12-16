@@ -18,7 +18,7 @@
       "fullUrl": "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00111100001",
       "resource": {
         "resourceType": "List",
-        "id": "aaaaaaaa-bbbb-cccc-dddd-e00111100001",
+        "id": "ex-compSubmissionSetList",
         "meta": {
           "profile": [
             "http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Minimal.SubmissionSet"
@@ -30,33 +30,22 @@
             }
           ]
         },
-        "text": {
-          "status": "extensions",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">SubmissionSet with Patient</div>"
-        },
-        "contained": [
-          {
-            "resourceType": "Practitioner",
-            "id": "in-practitioner2",
-            "telecom": [
-              {
-                "system": "email",
-                "value": "JohnMoehrke@gmail.com"
-              }
-            ]
-          }
-        ],
         "extension": [
+          {
+            "url": "http://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-designationType",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "225728007"
+                }
+              ]
+            }
+          },
           {
             "url": "http://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId",
             "valueIdentifier": {
               "value": "urn:oid:1.2.3.4"
-            }
-          },
-          {
-            "url": "http://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-intendedRecipient",
-            "valueReference": {
-              "reference": "#in-practitioner2"
             }
           }
         ],
@@ -64,12 +53,12 @@
           {
             "use": "official",
             "system": "urn:ietf:rfc:3986",
-            "value": "urn:oid:1.2.129.6.58.92.88337.1"
+            "value": "urn:oid:1.2.129.6.58.92.88337.4"
           },
           {
             "use": "usual",
             "system": "http://example.org/documents",
-            "value": "23425234-23470-1"
+            "value": "23425234-23470"
           }
         ],
         "status": "current",
@@ -83,13 +72,18 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00111100004"
+          "reference": "DDCCPatient/ex-patient"
         },
-        "date": "2004-10-25T23:50:50-05:00",
+        "date": "2004-12-25T23:50:50-05:00",
         "entry": [
           {
             "item": {
-              "reference": "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00111100002"
+              "reference": "DDCCDocumentReference/ex-documentreference"
+            }
+          },
+          {
+            "item": {
+              "reference": "List/ex-list"
             }
           }
         ]
@@ -103,22 +97,7 @@
       "fullUrl": "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00111100002",
       "resource": {
         "resourceType": "DocumentReference",
-        "id": "aaaaaaaa-bbbb-cccc-dddd-e00111100002",
-        "meta": {
-          "profile": [
-            "http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Minimal.DocumentReference"
-          ],
-          "security": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-              "code": "HTEST"
-            }
-          ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><p><b>masterIdentifier</b>: id: urn:oid:1.2.840.113556.1.8000.2554.53432.348.12973.17740.34205.4355.50220.62012</p><p><b>identifier</b>: id: urn:uuid:7d5bb8ac-68ee-4926-85e7-b8aac8e1f09d</p><p><b>status</b>: current</p><p><b>subject</b>: <a href=\"#Patient_aaaaaaaa-bbbb-cccc-dddd-e00111100004\">See above (Patient/aaaaaaaa-bbbb-cccc-dddd-e00111100004)</a></p><blockquote><p><b>content</b></p><p><b>format</b>: <span title=\"{http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode urn:ihe:iti:xds-sd:text:2008}\">ITI XDS-SD TEXT</span></p></blockquote></div>"
-        },
+        "id": "ex-DocumentReference",
         "masterIdentifier": {
           "system": "urn:ietf:rfc:3986",
           "value": "urn:oid:1.2.840.113556.1.8000.2554.53432.348.12973.17740.34205.4355.50220.62012"
@@ -131,19 +110,14 @@
         ],
         "status": "current",
         "subject": {
-          "reference": "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00111100004"
+          "reference": "DDCCPatient/ex-patient"
         },
+        "date": "2004-12-25T23:50:50-05:00",
         "content": [
           {
             "attachment": {
               "contentType": "text/plain",
-              "url": "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00111100003",
-              "size": 11,
-              "hash": "MGE0ZDU1YThkNzc4ZTUwMjJmYWI3MDE5NzdjNWQ4NDBiYmM0ODZkMA=="
-            },
-            "format": {
-              "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
-              "code": "urn:ihe:iti:xds-sd:text:2008"
+              "url": "testURL"
             }
           }
         ]
@@ -151,56 +125,6 @@
       "request": {
         "method": "POST",
         "url": "DocumentReference"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00111100003",
-      "resource": {
-        "resourceType": "Binary",
-        "id": "aaaaaaaa-bbbb-cccc-dddd-e00111100003",
-        "meta": {
-          "security": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-              "code": "HTEST"
-            }
-          ]
-        },
-        "contentType": "text/plain",
-        "data": "SGVsbG8gV29ybGQ="
-      },
-      "request": {
-        "method": "POST",
-        "url": "Binary"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00111100004",
-      "resource": {
-        "resourceType": "Patient",
-        "id": "aaaaaaaa-bbbb-cccc-dddd-e00111100004",
-        "meta": {
-          "security": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-              "code": "HTEST"
-            }
-          ]
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><p><b>name</b>: Dee Schmidt </p></div>"
-        },
-        "name": [
-          {
-            "family": "Schmidt",
-            "given": ["Dee"]
-          }
-        ]
-      },
-      "request": {
-        "method": "POST",
-        "url": "Patient"
       }
     }
   ]
