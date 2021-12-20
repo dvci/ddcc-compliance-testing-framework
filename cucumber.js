@@ -3,7 +3,6 @@ require('dotenv').config({
 });
 
 const worldParameters = {
-  appUrl: process.env.BASE_APP_URL || 'http://localhost:4321',
   authorizationHeader: process.env.AUTH_HEADER || null,
   validatorServiceUrl: process.env.VALIDATOR_SERVICE_URL || null,
   generationServiceUrl:

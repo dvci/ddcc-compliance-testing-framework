@@ -1,3 +1,4 @@
+@RepositoryService
 @StoreHealthCertificate
 Feature: Store Health Certificate
 

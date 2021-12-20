@@ -42,7 +42,6 @@ docker-compose up -d matchbox
 
 | Environment variable   | Description                                                                           | Default               |
 | ---------------------- | ------------------------------------------------------------------------------------- | --------------------- |
-| BASE_APP_URL           | Server URL to run tests against.                                                      | http://localhost:4321 |
 | GENERATION_SERVICE_URL | Server URL to run Generation Service tests against.                                   | http://localhost:4321 |
 | REPOSITORY_SERVICE_URL | Server URL to run Repository Service tests against.                                   | http://localhost:4321 |
 | REGISTRY_SERVICE_URL   | Server URL to run Registry Service tests against.                                     | http://localhost:4321 |
