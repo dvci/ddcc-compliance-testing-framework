@@ -7,6 +7,7 @@ const operationOutcomeInvalid = require('../fixtures/OperationOutcome/OperationO
 const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
 const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
 const rhcResponse = require('../fixtures/Response-ProvideDDCCDocument.json');
+const storeDDCCDocument = require('../../features/fixtures/storeHealthCertificate/Bundle-DDCCDocument.json');
 
 const config = {
   setup() {
@@ -56,15 +57,15 @@ const config = {
             id: like('DDCC-VS-TX-SHE-Parameters-1'),
             parameter: [
               {
-                name: oneOf(['response', 'id'])
-              }
-            ]
-          }
+                name: oneOf(['response', 'id']),
+              },
+            ],
+          },
         },
         response: {
           status: 201,
-          body: ddccDocument
-        }
+          body: ddccDocument,
+        },
       },
       {
         id: 'generateInvalidHealthCertificate',
@@ -74,8 +75,8 @@ const config = {
           path: '/QuestionnaireResponse/$generateHealthCertificate',
           body: {
             resourceType: 'Parameters',
-            id: 'DDCC-VS-TX-SHE-Parameters-1-invalid'
-          }
+            id: 'DDCC-VS-TX-SHE-Parameters-1-invalid',
+          },
         },
         response: {
           status: 422,
@@ -243,6 +244,18 @@ const config = {
         },
         response: {
           status: 200,
+        },
+      },
+      {
+        id: 'retrieveStoreHCResults',
+        strict: false,
+        request: {
+          method: 'GET',
+          path: '/DDCCDocument/TESTID/',
+        },
+        response: {
+          status: 200,
+          body: like(storeDDCCDocument),
         },
       },
     ]);
