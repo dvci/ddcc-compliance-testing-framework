@@ -3,7 +3,7 @@
   "id": "ex-minimalProvideDocumentBundleSimple",
   "meta": {
     "profile": [
-      "http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Minimal.ProvideBundle"
+      "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCProvideDocumentBundle"
     ],
     "security": [
       {
@@ -22,7 +22,7 @@
         "id": "ex-compSubmissionSetList",
         "meta": {
           "profile": [
-            "http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Minimal.SubmissionSet"
+            "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmissionSet"
           ],
           "security": [
             {
@@ -99,6 +99,11 @@
       "resource": {
         "resourceType": "DocumentReference",
         "id": "ex-DocumentReference",
+        "meta": {
+          "profile": [
+            "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCDocumentReference"
+          ]
+        },
         "masterIdentifier": {
           "system": "urn:ietf:rfc:3986",
           "value": "urn:oid:1.2.840.113556.1.8000.2554.53432.348.12973.17740.34205.4355.50220.62012"
