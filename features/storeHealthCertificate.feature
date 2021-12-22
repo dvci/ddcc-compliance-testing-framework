@@ -8,47 +8,43 @@ Feature: Store Health Certificate
       And I set json body to the file at ./features/fixtures/storeHealthCertificate/Bundle-DDCCDocument.json
     When I receive a response
     Then I expect response should have a status 201
-      And I expect response header location should be /DDCCDocument/TESTID
-      And I store response at /DDCCDocument/TESTID as Bundle-DDCCDocument
-
-  @StoreHealthCertificate-validResponse
-  Scenario: Retrieve Valid Store Health Certificate Results
-    Given I make a GET request to /DDCCDocument/TESTID/
-    When I receive a response
-    Then I expect response should have a status 200
-    And I expect response should have a json like
-    """
-    {
-      "entry": [
-        {},
-        {
-          "resource": {
-            "resourceType": "Patient",
-            "id": "DDCC-Patient-English",
-            "name": [
-              {
-                "text": "Aulus Agerius"
-              }
-            ],
-            "birthDate": "2003-03-03"
+      And I expect response header location should be /Bundle/TESTID
+      And the results from path /Bundle/TESTID should have a json like
+      """
+      {
+        "link": [
+          {
+            "url": "urn:HCID:1234567890"
           }
-        },
-        {},
-        {
-          "resource": {
-            "resourceType": "Immunization",
-            "vaccineCode": {
-              "coding": [
+        ],
+        "entry": [
+          {
+            "resource": {
+              "resourceType": "Patient",
+              "id": "DDCC-Patient-English",
+              "name": [
                 {
-                  "code": "XM0CX4"
+                  "text": "Aulus Agerius"
                 }
-              ]
+              ],
+              "birthDate": "2003-03-03"
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Immunization",
+              "vaccineCode": {
+                "coding": [
+                  {
+                    "code": "XM0CX4"
+                  }
+                ]
+              }
             }
           }
-        }   
-      ]
-    }
-    """
+        ]
+      }
+      """
 
   @StoreInvalidHealthCertificate-400
   Scenario: Submit Storage Transaction With Bad Request

@@ -7,7 +7,7 @@ const operationOutcomeInvalid = require('../fixtures/OperationOutcome/OperationO
 const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
 const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
 const rhcResponse = require('../fixtures/Response-ProvideDDCCDocument.json');
-const storeDDCCDocument = require('../../features/fixtures/storeHealthCertificate/Bundle-DDCCDocument.json');
+const storeHCRequest = require('../../features/fixtures/storeHealthCertificate/Bundle-DDCCDocument.json');
 
 const config = {
   setup() {
@@ -32,6 +32,22 @@ const config = {
       },
       {
         id: 'submitInvalidHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-invalid',
+          },
+        },
+        response: {
+          status: 422,
+          body: operationOutcomeRequired,
+        },
+      },
+      {
+        id: 'storeInvalidHealthCertificate-400',
         strict: false,
         request: {
           method: 'POST',
@@ -98,8 +114,20 @@ const config = {
         response: {
           status: 201,
           headers: {
-            Location: '/DDCCDocument/TESTID',
+            Location: '/Bundle/TESTID',
           },
+        },
+      },
+      {
+        id: 'retrieveStoreHealthCertificateResults',
+        strict: false,
+        request: {
+          method: 'GET',
+          path: '/Bundle/TESTID',
+        },
+        response: {
+          status: 200,
+          body: storeHCRequest,
         },
       },
       {
@@ -244,18 +272,6 @@ const config = {
         },
         response: {
           status: 200,
-        },
-      },
-      {
-        id: 'retrieveStoreHCResults',
-        strict: false,
-        request: {
-          method: 'GET',
-          path: '/DDCCDocument/TESTID/',
-        },
-        response: {
-          status: 200,
-          body: like(storeDDCCDocument),
         },
       },
     ]);
