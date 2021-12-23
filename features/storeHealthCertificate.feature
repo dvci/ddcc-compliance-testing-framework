@@ -9,43 +9,8 @@ Feature: Store Health Certificate
     When I receive a response
     Then I expect response should have a status 201
       And I expect response header location should be /Bundle/TESTID
-      And the results from path /Bundle/TESTID should have a json like
-      """
-      {
-        "link": [
-          {
-            "url": "urn:HCID:1234567890"
-          }
-        ],
-        "entry": [
-          {
-            "resource": {
-              "resourceType": "Patient",
-              "id": "DDCC-Patient-English",
-              "name": [
-                {
-                  "text": "Aulus Agerius"
-                }
-              ],
-              "birthDate": "2003-03-03"
-            }
-          },
-          {
-            "resource": {
-              "resourceType": "Immunization",
-              "vaccineCode": {
-                "coding": [
-                  {
-                    "code": "XM0CX4"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      }
-      """
-
+      And the results from path /Bundle/TESTID should have a json body like the file at ./features/fixtures/storeHealthCertificate/StoreHealthCertificate-response.json
+      
   @StoreInvalidHealthCertificate-400
   Scenario: Submit Storage Transaction With Bad Request
     Given I make a POST request to /Bundle

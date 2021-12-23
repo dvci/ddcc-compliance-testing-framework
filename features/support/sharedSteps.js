@@ -56,8 +56,9 @@ Then(
 
 // eslint-disable-next-line prefer-arrow-callback
 Then(
-  /the results from path (.*) should have a json like$/,
-  async (path, json) => {
+  /the results from path (.*) should have a json body like the file at (.*)$/,
+  async (path, fixture) => {
+    const json = fs.readFileSync(`${fixture}`);
     const response = await pactum.spec().get(path);
     pactum.expect(response).to.have.jsonLike(JSON.parse(json));
   }
