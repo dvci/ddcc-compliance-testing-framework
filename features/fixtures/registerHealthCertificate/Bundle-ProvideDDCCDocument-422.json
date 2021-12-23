@@ -3,14 +3,9 @@
   "id": "Bundle-ProvideDDCCDocument-422",
   "meta": {
     "profile": [
-      "http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Minimal.ProvideBundle"
-    ],
-    "security": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-        "code": "HTEST"
-      }
+      "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCProvideDocumentBundle"
     ]
   },
-  "type": "transaction"
+  "type": "transaction",
+  "timestamp": "2004-10-25T23:50:50-05:00"
 }
