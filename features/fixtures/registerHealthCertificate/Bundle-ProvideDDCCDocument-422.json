@@ -1,0 +1,11 @@
+{
+  "resourceType": "Bundle",
+  "id": "Bundle-ProvideDDCCDocument-422",
+  "meta": {
+    "profile": [
+      "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCProvideDocumentBundle"
+    ]
+  },
+  "type": "transaction",
+  "timestamp": "2004-10-25T23:50:50-05:00"
+}
