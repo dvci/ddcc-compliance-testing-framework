@@ -56,10 +56,13 @@ Then(
 
 // eslint-disable-next-line prefer-arrow-callback
 Then(
-  /I expect the results from the GET request sent to path (.*) should have a json body like the file at (.*)$/,
-  async (path, fixture) => {
+  /I expect the results from the GET request sent to the response location should have a json body like the file at (.*)$/,
+  async function (fixture) {
     const json = fs.readFileSync(`${fixture}`);
-    const response = await pactum.spec().get(path);
+    const response = await pactum
+      .spec()
+      // eslint-disable-next-line no-underscore-dangle
+      .get(this.spec._response.headers.location);
     pactum.expect(response).to.have.jsonLike(JSON.parse(json));
   }
 );
