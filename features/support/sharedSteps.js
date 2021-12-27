@@ -49,20 +49,18 @@ Then(
 Then(
   /I expect a response entry exists for each request entry in same order/,
   async function () {
-    const responseResources = [];
-    const requestResources = [];
     // eslint-disable-next-line no-underscore-dangle
-    this.spec._response.body.entry.forEach((responseEntry) => {
-      const { location } = responseEntry.response;
-      const resourceType = location.substring(0, location.lastIndexOf('/'));
-      responseResources.push(resourceType);
-    });
+    const responseResources = this.spec._response.body.entry.map(
+      (responseEntry) => {
+        const { location } = responseEntry.response;
+        return location.substring(0, location.lastIndexOf('/'));
+      }
+    );
 
     // eslint-disable-next-line no-underscore-dangle
-    this.spec._request.body.entry.forEach((requestEntry) => {
-      const { resourceType } = requestEntry.resource;
-      requestResources.push(resourceType);
-    });
+    const requestResources = this.spec._request.body.entry.map(
+      (requestEntry) => requestEntry.resource.resourceType
+    );
 
     expect(responseResources).to.have.ordered.members(requestResources);
   }
@@ -70,9 +68,23 @@ Then(
 
 // eslint-disable-next-line prefer-arrow-callback
 Then(
-  /I expect the GET request sent to path (.*) should return status (.*)$/,
-  async (path, code) => {
-    const response = await pactum.spec().get(path);
-    pactum.expect(response).should.have.status(parseInt(code, 10));
+  /I expect the GET request sent to each location should return status 200/,
+  async function () {
+    // eslint-disable-next-line no-underscore-dangle
+    const responseLocations = this.spec._response.body.entry.map(
+      (responseEntry) => {
+        const { location } = responseEntry.response;
+        return location;
+      }
+    );
+
+    responseLocations.forEach(async (location) => {
+      const response = await pactum.spec().get(`/${location}`);
+      pactum.expect(response).to.have.status(200);
+      // if (response.statusCode !== 200) {
+      //   throw new Error(`Error locating response at location ${location}`);
+      // }
+      return Promise.resolve();
+    });
   }
 );
