@@ -63,6 +63,16 @@ Then(
       const { resourceType } = requestEntry.resource;
       requestResources.push(resourceType);
     });
+
     expect(responseResources).to.have.ordered.members(requestResources);
+  }
+);
+
+// eslint-disable-next-line prefer-arrow-callback
+Then(
+  /I expect the GET request sent to path (.*) should return status (.*)$/,
+  async (path, code) => {
+    const response = await pactum.spec().get(path);
+    pactum.expect(response).should.have.status(parseInt(code, 10));
   }
 );

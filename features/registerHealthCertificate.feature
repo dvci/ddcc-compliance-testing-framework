@@ -11,6 +11,9 @@ Feature: Register Health Certificate
       # Check that an entry exists in response for each entry in request, in same order
       And I expect a response entry exists for each request entry in same order
       And I expect response should validate against the profile http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.ProvideDocumentBundleResponse
+      And I expect the GET request sent to path /List/1 should return status 200
+      And I expect the GET request sent to path /DocumentReference/1 should return status 200
+      And I expect the GET request sent to path /Patient/1 should return status 200
             
   @RegisterInvalidHealthCertificate-400
   Scenario: Submit Bad Request Register Health Certificate Transaction
