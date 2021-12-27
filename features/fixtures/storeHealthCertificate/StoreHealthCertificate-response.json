@@ -8,7 +8,6 @@
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "DDCC-Patient-English",
         "name": [
           {
             "text": "Aulus Agerius"
