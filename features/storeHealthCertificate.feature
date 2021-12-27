@@ -9,7 +9,7 @@ Feature: Store Health Certificate
     When I receive a response
     Then I expect response should have a status 201
       And I expect response header location should be /Bundle/TESTID
-      And the results from path /Bundle/TESTID should have a json body like the file at ./features/fixtures/storeHealthCertificate/StoreHealthCertificate-response.json
+      And I expect the results from the GET request sent to path /Bundle/TESTID should have a json body like the file at ./features/fixtures/storeHealthCertificate/StoreHealthCertificate-response.json
       
   @StoreInvalidHealthCertificate-400
   Scenario: Submit Storage Transaction With Bad Request
