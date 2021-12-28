@@ -26,7 +26,7 @@ npm run test
 
 ### Run FHIR Validator Service (optional)
 
-Starts FHIR validator service in Docker on port 4567.
+Starts FHIR validator service in Docker on port 4567. An updated FHIR IG package.tgz must be included in the /igs folder at service initialization.
 
 ```sh
 docker-compose up -d validator_service
