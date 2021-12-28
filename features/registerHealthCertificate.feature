@@ -8,9 +8,10 @@ Feature: Register Health Certificate
       And I set json body to the file at ./features/fixtures/registerHealthCertificate/Bundle-ProvideDDCCDocument.json
     When I receive a response
     Then I expect response should have a status 200
+      And I expect response should validate against the profile http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.ProvideDocumentBundleResponse
       # Check that an entry exists in response for each entry in request, in same order
       And I expect a response entry exists for each request entry in same order
-      And I expect response should validate against the profile http://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.ProvideDocumentBundleResponse
+      And I expect the GET request sent to each response entry location should have a status 200
             
   @RegisterInvalidHealthCertificate-400
   Scenario: Submit Bad Request Register Health Certificate Transaction

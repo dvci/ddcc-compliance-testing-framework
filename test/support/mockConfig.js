@@ -212,6 +212,39 @@ const config = {
           body: operationOutcomeRequired,
         },
       },
+      {
+        id: 'retrieveRegisterHealthCertificate-List',
+        strict: false,
+        request: {
+          method: 'GET',
+          path: '/List/1',
+        },
+        response: {
+          status: 200,
+        },
+      },
+      {
+        id: 'retrieveRegisterHealthCertificate-DocumentReference',
+        strict: false,
+        request: {
+          method: 'GET',
+          path: '/DocumentReference/1',
+        },
+        response: {
+          status: 200,
+        },
+      },
+      {
+        id: 'retrieveRegisterHealthCertificate-Patient',
+        strict: false,
+        request: {
+          method: 'GET',
+          path: '/Patient/1',
+        },
+        response: {
+          status: 200,
+        },
+      },
     ]);
   },
 };
