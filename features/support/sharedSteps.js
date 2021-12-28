@@ -49,20 +49,35 @@ Then(
 Then(
   /I expect a response entry exists for each request entry in same order/,
   async function () {
-    const responseResources = [];
-    const requestResources = [];
     // eslint-disable-next-line no-underscore-dangle
-    this.spec._response.body.entry.forEach((responseEntry) => {
-      const { location } = responseEntry.response;
-      const resourceType = location.substring(0, location.lastIndexOf('/'));
-      responseResources.push(resourceType);
-    });
+    const responseResources = this.spec._response.body.entry.map(
+      (responseEntry) => {
+        const { location } = responseEntry.response;
+        return location.substring(0, location.lastIndexOf('/'));
+      }
+    );
 
     // eslint-disable-next-line no-underscore-dangle
-    this.spec._request.body.entry.forEach((requestEntry) => {
-      const { resourceType } = requestEntry.resource;
-      requestResources.push(resourceType);
-    });
+    const requestResources = this.spec._request.body.entry.map(
+      (requestEntry) => requestEntry.resource.resourceType
+    );
+
     expect(responseResources).to.have.ordered.members(requestResources);
+  }
+);
+
+// eslint-disable-next-line prefer-arrow-callback
+Then(
+  'I expect the GET request sent to each response entry location should have a status {int}',
+  async function (statusCode) {
+    // eslint-disable-next-line no-underscore-dangle
+    const responsePromises = this.spec._response.body.entry.map(
+      async (entry) => {
+        const { location } = entry.response;
+        const response = await pactum.spec().get(`/${location}`);
+        pactum.expect(response).should.have.status(statusCode);
+      }
+    );
+    await Promise.all(responsePromises);
   }
 );
