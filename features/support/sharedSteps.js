@@ -56,7 +56,7 @@ Then(
 
 // eslint-disable-next-line prefer-arrow-callback
 Then(
-  /I expect the results from the GET request sent to the response location should have a json body like the file at (.*)$/,
+  /I expect the results from the GET request sent to the response location header should have a json body like the file at (.*)$/,
   async function (fixture) {
     const json = fs.readFileSync(`${fixture}`);
     const response = await pactum
