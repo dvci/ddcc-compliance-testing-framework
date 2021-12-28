@@ -42,7 +42,7 @@ const config = {
       }
     },
     {
-      id: 'generateHealthCertificate',
+      id: 'generateValidHealthCertificate',
       strict: false,
       request: {
         method: 'POST',
@@ -63,7 +63,7 @@ const config = {
       }
     },
     {
-      id: 'generateHealthCertificateInvalid',
+      id: 'generateInvalidHealthCertificate',
       strict: false,
       request: {
         method: 'POST',
