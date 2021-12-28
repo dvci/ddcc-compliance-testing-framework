@@ -68,10 +68,6 @@ Then(
   }
 );
 
-Then(/I expect response should have value (.*) at path (.*)/, function (value, path) {
-  this.spec.response().should.have.jsonMatch(path, value);
-});
-
 Then(/I expect response should have a json body like the file at (.*)$/, function (fixture) {
   const json = fs.readFileSync(`${fixture}`);
   this.spec.response().should.have.jsonLike(JSON.parse(json));
