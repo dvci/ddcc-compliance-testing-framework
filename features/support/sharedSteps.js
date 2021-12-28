@@ -2,6 +2,7 @@ const pactum = require('pactum');
 const { expression } = require('pactum-matchers');
 const { Given, Then } = require('@cucumber/cucumber');
 const { expect } = require('chai');
+const fs = require('fs');
 
 // eslint-disable-next-line prefer-arrow-callback
 Given(/I set json body to the file at (.*)$/, function (fixture) {
@@ -44,6 +45,11 @@ Then(
     return Promise.resolve();
   }
 );
+
+Then(/I expect response should have a json body like the file at (.*)$/, function (fixture) {
+  const json = fs.readFileSync(`${fixture}`);
+  this.spec.response().should.have.jsonLike(JSON.parse(json));
+});
 
 // eslint-disable-next-line prefer-arrow-callback
 Then(
