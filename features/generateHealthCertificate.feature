@@ -1,4 +1,5 @@
 @GenerationService
+@GenerateHealthCertificate
 Feature: Generate Health Certificate
 
   @GenerateValidHealthCertificate
