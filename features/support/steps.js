@@ -26,9 +26,12 @@ Given(/^I set query param (.*) to (.*)$/, (key, value) => {
   spec.withQueryParams(key, value);
 });
 
-Given(/^I set basic authentication credentials (.*) and (.*)$/, (username, password) => {
-  spec.withAuth(username, password);
-});
+Given(
+  /^I set basic authentication credentials (.*) and (.*)$/,
+  (username, password) => {
+    spec.withAuth(username, password);
+  }
+);
 
 Given(/^I set header (.*) to (.*)$/, (key, value) => {
   spec.withHeaders(key, value);
@@ -55,11 +58,11 @@ Then('I expect response should have a status {int}', (code) => {
 });
 
 Then(/^I expect response header (.*) should be (.*)$/, (key, value) => {
-  spec.response().should.have.header(key, value)
+  spec.response().should.have.header(key, value);
 });
 
 Then(/^I expect response header (.*) should have (.*)$/, (key, value) => {
-  spec.response().should.have.headerContains(key, value)
+  spec.response().should.have.headerContains(key, value);
 });
 
 Then(/^I expect response should have a json$/, (json) => {

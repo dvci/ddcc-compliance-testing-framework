@@ -1,0 +1,21 @@
+{
+  "resourceType": "Bundle",
+  "id": "Bundle-DDCCDocument-422",
+  "meta": {
+    "profile": [
+      "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCDocument"
+    ]
+  },
+  "identifier": {
+    "system": "urn:EXAMPLE-who-:ddcc:bundle:ids",
+    "value": "9990123012301230123"
+  },
+  "type": "document",
+  "timestamp": "2021-06-03T13:28:17-05:00",
+  "link": [
+    {
+      "relation": "publication",
+      "url": "urn:HCID:1234567890"
+    }
+  ]
+}

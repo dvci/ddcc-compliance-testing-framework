@@ -10,9 +10,10 @@ BeforeAll(() => {
 Before(function (testCase, callback) {
   // perform some shared setup, if already running will log a warning but no error
   if (this.parameters.mockPort !== null) {
-    mock.start(parseInt(this.parameters.mockPort, 10))
+    mock
+      .start(parseInt(this.parameters.mockPort, 10))
       .then(() => callback())
-      .catch((error) => callback(error))
+      .catch((error) => callback(error));
   }
 });
 
