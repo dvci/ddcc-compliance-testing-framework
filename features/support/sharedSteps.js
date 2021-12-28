@@ -68,24 +68,16 @@ Then(
 
 // eslint-disable-next-line prefer-arrow-callback
 Then(
-  /I expect the GET request sent to each location should return status 200/,
-  async function () {
+  'I expect the GET request sent to each response entry location should have a status {int}',
+  async function (statusCode) {
     // eslint-disable-next-line no-underscore-dangle
-    const responseLocations = this.spec._response.body.entry.map(
-      (responseEntry) => {
-        const { location } = responseEntry.response;
-        return location;
+    const responsePromises = this.spec._response.body.entry.map(
+      async (entry) => {
+        const { location } = entry.response;
+        const response = await pactum.spec().get(`/${location}`);
+        pactum.expect(response).should.have.status(statusCode);
       }
     );
-
-    const responsePromises = responseLocations.map(async (location) => {
-      const response = await pactum.spec().get(`/${location}`);
-      try {
-        pactum.expect(response).should.have.status(200);
-      } catch (e) {
-        throw new Error(e.message);
-      }
-    });
     await Promise.all(responsePromises);
   }
 );
