@@ -78,13 +78,14 @@ Then(
       }
     );
 
-    responseLocations.forEach(async (location) => {
+    const responsePromises = responseLocations.map(async (location) => {
       const response = await pactum.spec().get(`/${location}`);
-      pactum.expect(response).to.have.status(200);
-      // if (response.statusCode !== 200) {
-      //   throw new Error(`Error locating response at location ${location}`);
-      // }
-      return Promise.resolve();
+      try {
+        pactum.expect(response).should.have.status(200);
+      } catch (e) {
+        throw new Error(e.message);
+      }
     });
+    await Promise.all(responsePromises);
   }
 );
