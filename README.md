@@ -48,3 +48,27 @@ docker-compose up -d matchbox
 | AUTH_HEADER            | Optional Authorization header for requests.                                           | null                  |
 | VALIDATOR_SERVICE_URL  | Optional FHIR Validator Service url. If not provided, will skip validator test steps. | null                  |
 | MOCK_PORT              | If running in test mode, port to run mock server.                                     | null                  |
+
+## Transaction Details
+
+### DDCC:VS Generation Service
+
+#### Submit Health Event
+
+This transaction submits a Health Event Request and returns a Submit Health Event Response. To learn more about this transaction, refer to the [Submit Health Event workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#submit-health-event).
+
+#### Generate Health Certificate
+
+This FHIR operation accepts a set of immunization data elements via a questionnaire response and returns a DDCC Dociment. To learn more about this transaction, refer to the [Generate Health Certificate OperationDefinition](https://worldhealthorganization.github.io/ddcc/OperationDefinition-DDCC-QuestionnaireResponse-generateHealthCertificate.html).
+
+### DDCC:VS Registry Service
+
+#### Register Health Certificate
+
+This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The transaction is based on the [MHD Provide Document Bundle transaction](https://profiles.ihe.net/ITI/MHD/ITI-65.html#2365412-message-semantics). To learn more about this transaction, refer to the [Register Health Certificate workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#register-health-certificate).
+
+### DDCC:VS Repository Service
+
+#### Store Health Certificate
+
+This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The transaction stores the resulting DDCC Document. To learn more about this transaction, refer to the [Store Health Certificate workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#store-health-certificate).
