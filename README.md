@@ -92,7 +92,7 @@ The following assertions are made for this transaction:
 
 #### Register Health Certificate
 
-This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The request consists of a [DDCC Provide Document Bundle](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCProvideDocumentBundle.html), and the response is a transaction bundle. The transaction is based on the [MHD Provide Document Bundle transaction](https://profiles.ihe.net/ITI/MHD/ITI-65.html#2365412-message-semantics). To learn more about this transaction, refer to the [Register Health Certificate workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#register-health-certificate).
+This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The request consists of a [DDCC Provide Document Bundle](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCProvideDocumentBundle.html), and the response is a transaction bundle. The transaction is based on the [MHD Provide Document Bundle transaction](https://profiles.ihe.net/ITI/MHD/ITI-65.html#2365412-message-semantics). To learn more about this transaction, refer to the [Register Health Certificate workflow in the WHO DDCC:VS Implementation Guide](https://worldhealthorganization.github.io/ddcc/transactions.html#register-health-certificate).
 
 The following assertions are made for this transaction:
 
