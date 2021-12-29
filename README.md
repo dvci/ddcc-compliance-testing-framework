@@ -59,7 +59,8 @@ This transaction submits a Health Event Request and returns a Submit Health Even
 
 The following assertions are made for this transaction:
 
-- add assertions
+- Valid Transaction: When a POST request consisting of a batch Bundle of [Parameters](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html) for the [Generate Health Certificate Operation](https://worldhealthorganization.github.io/ddcc/OperationDefinition-DDCC-QuestionnaireResponse-generateHealthCertificate.html) is sent to `[base]/submitHealthEvent`, the response should return 201 status and the response should maintain elements from the request such as the DDCCDocument HCID, DDCCPatient name and birthdate, and DDCCImmunization vaccine information.
+- Invalid Transaction (422 Error): When a POST request is sent to `[base]/submitHealthEvent` that does not conform to the [DDCCSubmitHealthEvent profile](http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventRequest), the response should return 422 status.
 
 #### Generate Health Certificate
 
@@ -67,7 +68,8 @@ This FHIR operation accepts a set of immunization data elements via a questionna
 
 The following assertions are made for this transaction:
 
-- add assertions
+- Valid Transaction: When a POST request consisting of a [FHIR Parameters resource](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html) is sent to `[base]/QuestionnaireResponse/$generateHealthCertificate`, the response should return 201 status with a valid [DDCCDocument resource](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html) as the response body.
+- Invalid Transaction (422 Error): When a POST request is sent to `[base]/QuestionnaireResponse/$generateHealthCertificate` that does not conform to the [DCCCGenerateHealthCertificatePArameters profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html), the response should return 422 status.
 
 ### DDCC:VS Registry Service
 
@@ -77,7 +79,7 @@ This transaction is called by the Generate Health Certificate service when a new
 
 The following assertions are made for this transaction:
 
-- Valid Transaction: When a POST request is sent to `[base]`, the response should return 200 status and the response should have at least one entry for each entry in the request, in the same order, with an entry response location.
+- Valid Transaction: When a POST request consisting of a [DDCC Provide Document Bundle](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCProvideDocumentBundle.html) is sent to `[base]`, the response should return 200 status and the response should have at least one entry for each entry in the request, in the same order, with an entry response location.
 - Invalid Transaction (400 Error): When a POST request is sent to `[base]` that fails the basic FHIR validation rules, the response should return 400 status.
 - Invalid Transaction (422 Error): When a POST request is sent to `[base]` that does not conform to the [DDCC Provide Document Bundle profile](http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCProvideDocumentBundle), the response should return 422 status.
 
@@ -89,7 +91,7 @@ This transaction is called by the Generate Health Certificate service when a new
 
 The following assertions are made for this transaction:
 
-- Valid Transaction:
-- Invalid Transaction (400 Error):
-- Invalid Transaction (404 Error):
-- Invalid Transaction (422 Error):
+- Valid Transaction: When a POST request consisting of a [DDCC Document](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html) is sent to `[base]/Bundle`, the response should return 201 status and the `Location` header should be appropriately populated for the created resource.
+- Invalid Transaction (400 Error): When a POST request is sent to `[base]/Bundle` that fails the basic FHIR validation rules, the response should return 400 status.
+- Invalid Transaction (404 Error): When a POST request is sent to `[base]/Bundle` with a JSON body that contains an invalid resource type, or a POST request is sent to an invalid endpoint, the response should return 404 status.
+- Invalid Transaction (422 Error): When a POST request is sent to `[base]/Bundle` that does not conform to the [DDCC Document profile](http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCDocument), the response should return 422 status.
