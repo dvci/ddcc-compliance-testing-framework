@@ -101,7 +101,7 @@ The following assertions are made for this transaction:
   - Return a transaction bundle that has at least one entry for each entry in the request, in the same order, with an entry response location.
 - Invalid Transactions:
   - 400 Error: When a POST request is sent to `[base]` that fails the basic FHIR validation rules, the response should return 400 status.
-  - 422 Error: When a POST request is sent to `[base]` that does not conform to the [DDCC Provide Document Bundle profile](http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCProvideDocumentBundle), the response should return 422 status.
+  - 422 Error: When a POST request is sent to `[base]` that does not conform to the [DDCC Provide Document Bundle profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCProvideDocumentBundle.html), the response should return 422 status.
 
 ### DDCC:VS Repository Service
 
