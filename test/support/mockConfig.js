@@ -5,8 +5,11 @@ const operationOutcomeRequired = require('../fixtures/OperationOutcome/Operation
 const operationOutcomeNotFound = require('../fixtures/OperationOutcome/OperationOutcome-not-found.json');
 const operationOutcomeInvalid = require('../fixtures/OperationOutcome/OperationOutcome-invalid.json');
 const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
-// Language-specific responses
-const sheResponseChinese = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-Chinese.json');
+const sheResponseArabic = require('../fixtures/languages/Bundle-DDCC-TX-SHE-response-example-Arabic.json');
+const sheResponseChinese = require('../fixtures/languages/Bundle-DDCC-TX-SHE-response-example-Chinese.json');
+const sheResponseFrench = require('../fixtures/languages/Bundle-DDCC-TX-SHE-response-example-French.json');
+const sheResponseRussian = require('../fixtures/languages/Bundle-DDCC-TX-SHE-response-example-Russian.json');
+const sheResponseSpanish = require('../fixtures/languages/Bundle-DDCC-TX-SHE-response-example-Spanish.json');
 const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
 const rhcResponse = require('../fixtures/Response-ProvideDDCCDocument.json');
 const storeHCRetrieveResults = require('../fixtures/Bundle-DDCCDocument.json');
@@ -49,6 +52,24 @@ const config = {
         },
       },
       {
+        id: 'submitArabicHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-Arabic',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseArabic,
+        },
+      },
+      {
         id: 'submitChineseHealthEvent',
         strict: false,
         request: {
@@ -64,6 +85,60 @@ const config = {
         response: {
           status: 201,
           body: sheResponseChinese,
+        },
+      },
+      {
+        id: 'submitFrenchHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-French',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseFrench,
+        },
+      },
+      {
+        id: 'submitRussianHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-Russian',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseRussian,
+        },
+      },
+      {
+        id: 'submitSpanishHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-Spanish',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseSpanish,
         },
       },
       {
