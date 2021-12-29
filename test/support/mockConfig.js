@@ -7,6 +7,7 @@ const operationOutcomeInvalid = require('../fixtures/OperationOutcome/OperationO
 const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
 const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
 const rhcResponse = require('../fixtures/Response-ProvideDDCCDocument.json');
+const storeHCRetrieveResults = require('../fixtures/Bundle-DDCCDocument.json');
 
 const config = {
   setup() {
@@ -46,6 +47,22 @@ const config = {
         },
       },
       {
+        id: 'storeInvalidHealthCertificate-400',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-invalid',
+          },
+        },
+        response: {
+          status: 422,
+          body: operationOutcomeRequired,
+        },
+      },
+      {
         id: 'generateValidHealthCertificate',
         strict: false,
         request: {
@@ -56,15 +73,15 @@ const config = {
             id: like('DDCC-VS-TX-SHE-Parameters-1'),
             parameter: [
               {
-                name: oneOf(['response', 'id'])
-              }
-            ]
-          }
+                name: oneOf(['response', 'id']),
+              },
+            ],
+          },
         },
         response: {
           status: 201,
-          body: ddccDocument
-        }
+          body: ddccDocument,
+        },
       },
       {
         id: 'generateInvalidHealthCertificate',
@@ -74,8 +91,8 @@ const config = {
           path: '/QuestionnaireResponse/$generateHealthCertificate',
           body: {
             resourceType: 'Parameters',
-            id: 'DDCC-VS-TX-SHE-Parameters-1-invalid'
-          }
+            id: 'DDCC-VS-TX-SHE-Parameters-1-invalid',
+          },
         },
         response: {
           status: 422,
@@ -97,8 +114,20 @@ const config = {
         response: {
           status: 201,
           headers: {
-            Location: '/DDCCDocument/TESTID',
+            Location: '/Bundle/TESTID',
           },
+        },
+      },
+      {
+        id: 'retrieveStoreHealthCertificateResults',
+        strict: false,
+        request: {
+          method: 'GET',
+          path: '/Bundle/TESTID',
+        },
+        response: {
+          status: 200,
+          body: storeHCRetrieveResults,
         },
       },
       {
