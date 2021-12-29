@@ -117,4 +117,4 @@ The following assertions are made for this transaction:
 - Invalid Transactions
   - 400 Error: When a POST request is sent to `[base]/Bundle` that fails the basic FHIR validation rules, the response should return 400 status.
   - 404 Error: When a POST request is sent to `[base]/Bundle` with a JSON body that contains an invalid resource type, or a POST request is sent to an invalid endpoint, the response should return 404 status.
-  - 422 Error: When a POST request is sent to `[base]/Bundle` that does not conform to the [DDCC Document profile](http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCDocument), the response should return 422 status.
+  - 422 Error: When a POST request is sent to `[base]/Bundle` that does not conform to the [DDCC Document profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html), the response should return 422 status.
