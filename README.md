@@ -85,6 +85,7 @@ The following assertions are made for this transaction:
 - Valid Transaction: When a valid Generate Health Certificate Request is sent via POST to `[base]/QuestionnaireResponse/$generateHealthCertificate`, the response should:
   - Return 201 status.
   - Return a valid [DDCCDocument resource](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html) as the response body.
+  - Contain a valid signature element as a part of the DDCCDocument response.
 - Invalid Transaction (422 Error): When a Generate Health Certificate Request is sent via POST to `[base]/QuestionnaireResponse/$generateHealthCertificate` that does not conform to the [DCCCGenerateHealthCertificateParameters profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html), the response should return 422 status.
 
 ### DDCC:VS Registry Service
