@@ -1,0 +1,218 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "DDCC-VS-QuestionnaireResponse-Spanish",
+  "meta": {
+    "profile": [
+      "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCQuestionnaireResponse"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource \"DDCC-VS-QuestionnaireResponse-Spanish\" </p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-DDCCQuestionnaireResponse.html\">DDCC Questionnaire Response</a></p></div><p><b>questionnaire</b>: <a href=\"http://worldhealthorganization.github.io/ddcc/DDCCVSCoreDataSetQuestionnaire\">http://worldhealthorganization.github.io/ddcc/DDCCVSCoreDataSetQuestionnaire</a></p><p><b>status</b>: completed</p><p><b>subject</b>: <a href=\"Patient-DDCC-Patient-Spanish.html\">Patient/DDCC-Patient-Spanish</a> \"\"</p><p><b>authored</b>: 2021-04-01</p><blockquote><p><b>item</b></p><p><b>linkId</b>: name</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Aulo Agerio</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: birthDate</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>2003-03-03</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: identifier</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>12345678904</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: sex</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Male (Details: http://hl7.org/fhir/administrative-gender code male = 'Male', stated as 'null')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: vaccine</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>XM1NL1 (Details: http://id.who.int/icd11/mms code XM1NL1 = 'XM1NL1', stated as 'null')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: brand</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Test (Details: http://worldhealthorganization.github.io/ddcc/CodeSystem/DDCC-Example-Test-CodeSystem code TEST = 'Test', stated as 'null')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: manufacturer</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Test (Details: http://worldhealthorganization.github.io/ddcc/CodeSystem/DDCC-Example-Test-CodeSystem code TEST = 'Test', stated as 'null')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: ma_holder</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Test (Details: http://worldhealthorganization.github.io/ddcc/CodeSystem/DDCC-Example-Test-CodeSystem code TEST = 'Test', stated as 'null')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: lot</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>ER8732</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: date</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>2021-04-05</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: vaccine_valid</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>2021-04-19</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: dose</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>1</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: total_doses</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>2</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: country</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Spain (Details: urn:iso:std:iso:3166 code ESP = 'Spain', stated as 'null')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: centre</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Sitio de vacunación</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: hw</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>lAH8TnzqAInqwkslHzOlSA</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: disease</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>RA01 (Details: http://id.who.int/icd11/mms code RA01 = 'RA01', stated as 'null')</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: due_date</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>2021-04-28</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: pha</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>dPD2PfwzBQyphcjeUiAdRP</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: hcid</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>bMlJkAt0V92RYhhG3fNt4</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: valid_from</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>2021-04-05</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: valid_until</p><h3>Answers</h3><table class=\"grid\"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>2022-04-05</td></tr></table></blockquote></div>"
+  },
+  "questionnaire": "http://worldhealthorganization.github.io/ddcc/DDCCVSCoreDataSetQuestionnaire",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/DDCC-Patient-Spanish"
+  },
+  "authored": "2021-04-01",
+  "item": [
+    {
+      "linkId": "name",
+      "answer": [
+        {
+          "valueString": "Aulo Agerio"
+        }
+      ]
+    },
+    {
+      "linkId": "birthDate",
+      "answer": [
+        {
+          "valueDate": "2003-03-03"
+        }
+      ]
+    },
+    {
+      "linkId": "identifier",
+      "answer": [
+        {
+          "valueString": "12345678904"
+        }
+      ]
+    },
+    {
+      "linkId": "sex",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/administrative-gender",
+            "code": "male"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "vaccine",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://id.who.int/icd11/mms",
+            "code": "XM1NL1"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "brand",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://worldhealthorganization.github.io/ddcc/CodeSystem/DDCC-Example-Test-CodeSystem",
+            "code": "TEST"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "manufacturer",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://worldhealthorganization.github.io/ddcc/CodeSystem/DDCC-Example-Test-CodeSystem",
+            "code": "TEST"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "ma_holder",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://worldhealthorganization.github.io/ddcc/CodeSystem/DDCC-Example-Test-CodeSystem",
+            "code": "TEST"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "lot",
+      "answer": [
+        {
+          "valueString": "ER8732"
+        }
+      ]
+    },
+    {
+      "linkId": "date",
+      "answer": [
+        {
+          "valueDate": "2021-04-05"
+        }
+      ]
+    },
+    {
+      "linkId": "vaccine_valid",
+      "answer": [
+        {
+          "valueDate": "2021-04-19"
+        }
+      ]
+    },
+    {
+      "linkId": "dose",
+      "answer": [
+        {
+          "valueInteger": 1
+        }
+      ]
+    },
+    {
+      "linkId": "total_doses",
+      "answer": [
+        {
+          "valueInteger": 2
+        }
+      ]
+    },
+    {
+      "linkId": "country",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "urn:iso:std:iso:3166",
+            "code": "ESP"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "centre",
+      "answer": [
+        {
+          "valueString": "Sitio de vacunación"
+        }
+      ]
+    },
+    {
+      "linkId": "hw",
+      "answer": [
+        {
+          "valueString": "lAH8TnzqAInqwkslHzOlSA"
+        }
+      ]
+    },
+    {
+      "linkId": "disease",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://id.who.int/icd11/mms",
+            "code": "RA01"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "due_date",
+      "answer": [
+        {
+          "valueDate": "2021-04-28"
+        }
+      ]
+    },
+    {
+      "linkId": "pha",
+      "answer": [
+        {
+          "valueString": "dPD2PfwzBQyphcjeUiAdRP"
+        }
+      ]
+    },
+    {
+      "linkId": "hcid",
+      "answer": [
+        {
+          "valueString": "bMlJkAt0V92RYhhG3fNt4"
+        }
+      ]
+    },
+    {
+      "linkId": "valid_from",
+      "answer": [
+        {
+          "valueDate": "2021-04-05"
+        }
+      ]
+    },
+    {
+      "linkId": "valid_until",
+      "answer": [
+        {
+          "valueDate": "2022-04-05"
+        }
+      ]
+    }
+  ]
+}
