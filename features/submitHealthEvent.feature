@@ -37,7 +37,8 @@ Feature: Submit Health Event
      When I receive a response
      Then I expect response should have a status 201
       And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse
-      
+      And I expect response should have a json body like the file at ./features/fixtures/submitHealthEvent/language-responses/SubmitChineseHealthEvent-response.json
+
   @SubmitFrenchHealthEvent
   Scenario: Submit French Health Event
     Given I make a POST request to /submitHealthEvent
@@ -45,6 +46,7 @@ Feature: Submit Health Event
      When I receive a response
      Then I expect response should have a status 201
       And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse
+      And I expect response should have a json body like the file at ./features/fixtures/submitHealthEvent/language-responses/SubmitFrenchHealthEvent-response.json
 
   @SubmitRussianHealthEvent
   Scenario: Submit Russian Health Event
