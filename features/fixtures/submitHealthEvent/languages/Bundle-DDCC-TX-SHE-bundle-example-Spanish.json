@@ -77,7 +77,7 @@
                     {
                       "valueCoding": {
                         "system": "http://id.who.int/icd11/mms",
-                        "code": "XM1NL1"
+                        "code": "XM0CX4"
                       }
                     }
                   ]
@@ -127,7 +127,7 @@
                   "linkId": "date",
                   "answer": [
                     {
-                      "valueDate": "2021-04-05"
+                      "valueDate": "2021-05-06"
                     }
                   ]
                 },
@@ -213,7 +213,7 @@
                   "linkId": "hcid",
                   "answer": [
                     {
-                      "valueString": "bMlJkAt0V92RYhhG3fNt4"
+                      "valueString": "urn:HCID:1234567890"
                     }
                   ]
                 },
