@@ -89,4 +89,7 @@ This transaction is called by the Generate Health Certificate service when a new
 
 The following assertions are made for this transaction:
 
-- add assertions
+- Valid Transaction:
+- Invalid Transaction (400 Error):
+- Invalid Transaction (404 Error):
+- Invalid Transaction (422 Error):
