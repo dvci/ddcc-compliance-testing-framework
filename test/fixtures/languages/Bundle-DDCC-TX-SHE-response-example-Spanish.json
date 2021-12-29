@@ -1,6 +1,6 @@
 {
   "resourceType": "Bundle",
-  "id": "DDCC-TX-SHE-response-example-Chinese",
+  "id": "DDCC-TX-SHE-response-example-Spanish",
   "meta": {
     "profile": [
       "http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse"
@@ -13,7 +13,7 @@
   "type": "batch-response",
   "entry": [
     {
-      "fullUrl": "http://www.example.org/fhir/Bundle/Example-Chinese",
+      "fullUrl": "http://www.example.org/fhir/Bundle/Example-Spanish",
       "resource": {
         "resourceType": "Bundle",
         "id": "Example-Spanish",
