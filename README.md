@@ -107,7 +107,7 @@ The following assertions are made for this transaction:
 
 #### Store Health Certificate
 
-This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The transaction stores the resulting [DDCC Document](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html). To learn more about this transaction, refer to the [Store Health Certificate workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#store-health-certificate).
+This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The transaction stores the resulting [DDCC Document](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html). To learn more about this transaction, refer to the [Store Health Certificate workflow in the WHO DDCC:VS Implementation Guide](https://worldhealthorganization.github.io/ddcc/transactions.html#store-health-certificate).
 
 The following assertions are made for this transaction:
 
