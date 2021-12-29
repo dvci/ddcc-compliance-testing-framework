@@ -7,7 +7,7 @@ const operationOutcomeInvalid = require('../fixtures/OperationOutcome/OperationO
 const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
 const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
 const rhcResponse = require('../fixtures/Response-ProvideDDCCDocument.json');
-const storeHCRequest = require('../../features/fixtures/storeHealthCertificate/Bundle-DDCCDocument.json');
+const storeHCRequest = require('../fixtures/Bundle-DDCCDocument.json');
 
 const config = {
   setup() {

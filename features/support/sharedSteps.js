@@ -1,10 +1,11 @@
+/* eslint-disable prefer-arrow-callback, no-underscore-dangle */
+
 const pactum = require('pactum');
 const { expression } = require('pactum-matchers');
 const { Given, Then } = require('@cucumber/cucumber');
 const { expect } = require('chai');
 const fs = require('fs');
 
-// eslint-disable-next-line prefer-arrow-callback
 Given(/I set json body to the file at (.*)$/, function (fixture) {
   this.spec.withJson(fixture);
 });
@@ -19,7 +20,6 @@ Then(
     const response = await pactum
       .spec()
       .post(`${this.parameters.validatorServiceUrl}?profile=${profile}`)
-      // eslint-disable-next-line no-underscore-dangle
       .withJson(this.spec._response.json);
 
     if (response.statusCode !== 200) {
@@ -61,17 +61,14 @@ Then(
     const json = fs.readFileSync(`${fixture}`);
     const response = await pactum
       .spec()
-      // eslint-disable-next-line no-underscore-dangle
       .get(this.spec._response.headers.location);
     pactum.expect(response).to.have.jsonLike(JSON.parse(json));
   }
 );
 
-// eslint-disable-next-line prefer-arrow-callback
 Then(
   /I expect a response entry exists for each request entry in same order/,
   async function () {
-    // eslint-disable-next-line no-underscore-dangle
     const responseResources = this.spec._response.body.entry.map(
       (responseEntry) => {
         const { location } = responseEntry.response;
@@ -79,7 +76,6 @@ Then(
       }
     );
 
-    // eslint-disable-next-line no-underscore-dangle
     const requestResources = this.spec._request.body.entry.map(
       (requestEntry) => requestEntry.resource.resourceType
     );
