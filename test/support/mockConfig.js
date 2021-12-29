@@ -5,6 +5,8 @@ const operationOutcomeRequired = require('../fixtures/OperationOutcome/Operation
 const operationOutcomeNotFound = require('../fixtures/OperationOutcome/OperationOutcome-not-found.json');
 const operationOutcomeInvalid = require('../fixtures/OperationOutcome/OperationOutcome-invalid.json');
 const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
+// Language-specific responses
+const sheResponseChinese = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-Chinese.json');
 const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
 const rhcResponse = require('../fixtures/Response-ProvideDDCCDocument.json');
 const storeHCRetrieveResults = require('../fixtures/Bundle-DDCCDocument.json');
@@ -44,6 +46,24 @@ const config = {
         response: {
           status: 422,
           body: operationOutcomeRequired,
+        },
+      },
+      {
+        id: 'submitChineseHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-Chinese',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseChinese,
         },
       },
       {
