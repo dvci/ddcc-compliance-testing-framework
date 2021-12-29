@@ -66,7 +66,7 @@ For each of the defined transactions, the following elements are validated using
 
 #### Submit Health Event
 
-This transaction submits a Health Event Request consisting of a batch Bundle of [Parameters](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html) for the [Generate Health Certificate Operation](https://worldhealthorganization.github.io/ddcc/OperationDefinition-DDCC-QuestionnaireResponse-generateHealthCertificate.html). The transaction returns a Submit Health Event Response consisting of a batch-response FHIR Bundle. To learn more about this transaction, refer to the [Submit Health Event workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#submit-health-event).
+This transaction submits a Health Event Request consisting of a batch Bundle of [Parameters](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html) for the [Generate Health Certificate Operation](https://worldhealthorganization.github.io/ddcc/OperationDefinition-DDCC-QuestionnaireResponse-generateHealthCertificate.html). The transaction returns a Submit Health Event Response consisting of a batch-response FHIR Bundle. To learn more about this transaction, refer to the [Submit Health Event workflow in the WHO DDCC:VS Implementation Guide](https://worldhealthorganization.github.io/ddcc/transactions.html#submit-health-event).
 
 The following assertions are made for this transaction:
 
