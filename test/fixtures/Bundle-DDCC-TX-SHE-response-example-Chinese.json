@@ -292,8 +292,8 @@
           }
         ]
       },
-      "response" : {
-        "status" : "201",
+      "response": {
+        "status": "201",
         "location": "someLocation",
         "etag": "someEtag"
       }
