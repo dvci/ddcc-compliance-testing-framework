@@ -52,7 +52,7 @@ docker-compose up -d matchbox
 
 ## Validation Details
 
-For each of the defined transactions, the follow elements are validated using Gherkin test scenarios:
+For each of the defined transactions, the following elements are validated using Gherkin test scenarios:
 
 - Response status code
 - Profile validation using the FHIR validator
