@@ -62,6 +62,15 @@ For each of the defined transactions, the follow elements are validated using Gh
 
 ## Transaction Details
 
+The following transactions are tested via Gherkin test scenarios:
+
+- [Submit Health Event](https://worldhealthorganization.github.io/ddcc/transactions.html#submit-health-event)
+- [Generate Health Certificate](https://worldhealthorganization.github.io/ddcc/OperationDefinition-DDCC-QuestionnaireResponse-generateHealthCertificate.html)
+- [Register Health Certificate](https://worldhealthorganization.github.io/ddcc/transactions.html#register-health-certificate)
+- [Store Health Certificate](https://worldhealthorganization.github.io/ddcc/transactions.html#store-health-certificate)
+
+For the following transactions, let `[base]` represent the base URL for the HTTP requests sent to the server.
+
 ### DDCC:VS Generation Service
 
 #### Submit Health Event
