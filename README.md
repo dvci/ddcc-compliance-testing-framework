@@ -52,7 +52,7 @@ docker-compose up -d matchbox
 
 ## Validation Details
 
-For each of the defined transactions, the follow elements are validated using Gherkin test scenarios:
+For each of the defined transactions, the following elements are validated using Gherkin test scenarios:
 
 - Response status code
 - Profile validation using the FHIR validator
@@ -75,14 +75,14 @@ For the following transactions, let `[base]` represent the base URL for the HTTP
 
 #### Submit Health Event
 
-This transaction submits a Health Event Request consisting of a batch Bundle of [Parameters](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html) for the [Generate Health Certificate Operation](https://worldhealthorganization.github.io/ddcc/OperationDefinition-DDCC-QuestionnaireResponse-generateHealthCertificate.html). The transaction returns a Submit Health Event Response consisting of a batch-response FHIR Bundle. To learn more about this transaction, refer to the [Submit Health Event workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#submit-health-event).
+This transaction submits a Health Event Request consisting of a batch Bundle of [Parameters](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html) for the [Generate Health Certificate Operation](https://worldhealthorganization.github.io/ddcc/OperationDefinition-DDCC-QuestionnaireResponse-generateHealthCertificate.html). The transaction returns a Submit Health Event Response consisting of a batch-response FHIR Bundle. To learn more about this transaction, refer to the [Submit Health Event workflow in the WHO DDCC:VS Implementation Guide](https://worldhealthorganization.github.io/ddcc/transactions.html#submit-health-event).
 
 The following assertions are made for this transaction:
 
 - Valid Transaction: When a valid Health Event Request is sent via POST to `[base]/submitHealthEvent`, the response should:
   - Return 201 status.
   - Return a response body that maintains elements from the request such as the DDCCDocument HCID, DDCCPatient name and birthdate, and DDCCImmunization vaccine information.
-- Invalid Transaction (422 Error): When a Health Event Request is sent via POST to `[base]/submitHealthEvent` that does not conform to the [DDCCSubmitHealthEvent profile](http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventRequest), the response should return 422 status.
+- Invalid Transaction (422 Error): When a Health Event Request is sent via POST to `[base]/submitHealthEvent` that does not conform to the [DDCCSubmitHealthEventRequest profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCSubmitHealthEventRequest.html), the response should return 422 status.
 
 #### Generate Health Certificate
 
@@ -94,13 +94,14 @@ The following assertions are made for this transaction:
 - Valid Transaction: When a valid Generate Health Certificate Request is sent via POST to `[base]/QuestionnaireResponse/$generateHealthCertificate`, the response should:
   - Return 201 status.
   - Return a valid [DDCCDocument resource](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html) as the response body.
+  - Contain a valid signature element as a part of the DDCCDocument response.
 - Invalid Transaction (422 Error): When a Generate Health Certificate Request is sent via POST to `[base]/QuestionnaireResponse/$generateHealthCertificate` that does not conform to the [DCCCGenerateHealthCertificateParameters profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html), the response should return 422 status.
 
 ### DDCC:VS Registry Service
 
 #### Register Health Certificate
 
-This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The request consists of a [DDCC Provide Document Bundle](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCProvideDocumentBundle.html), and the response is a transaction bundle. The transaction is based on the [MHD Provide Document Bundle transaction](https://profiles.ihe.net/ITI/MHD/ITI-65.html#2365412-message-semantics). To learn more about this transaction, refer to the [Register Health Certificate workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#register-health-certificate).
+This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The request consists of a [DDCC Provide Document Bundle](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCProvideDocumentBundle.html), and the response is a transaction bundle. The transaction is based on the [MHD Provide Document Bundle transaction](https://profiles.ihe.net/ITI/MHD/ITI-65.html#2365412-message-semantics). To learn more about this transaction, refer to the [Register Health Certificate workflow in the WHO DDCC:VS Implementation Guide](https://worldhealthorganization.github.io/ddcc/transactions.html#register-health-certificate).
 
 The following assertions are made for this transaction:
 
@@ -109,13 +110,13 @@ The following assertions are made for this transaction:
   - Return a transaction bundle that has at least one entry for each entry in the request, in the same order, with an entry response location.
 - Invalid Transactions:
   - 400 Error: When a POST request is sent to `[base]` that fails the basic FHIR validation rules, the response should return 400 status.
-  - 422 Error: When a POST request is sent to `[base]` that does not conform to the [DDCC Provide Document Bundle profile](http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCProvideDocumentBundle), the response should return 422 status.
+  - 422 Error: When a POST request is sent to `[base]` that does not conform to the [DDCC Provide Document Bundle profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCProvideDocumentBundle.html), the response should return 422 status.
 
 ### DDCC:VS Repository Service
 
 #### Store Health Certificate
 
-This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The transaction stores the resulting [DDCC Document](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html). To learn more about this transaction, refer to the [Store Health Certificate workflow in the WHO specification](https://worldhealthorganization.github.io/ddcc/transactions.html#store-health-certificate).
+This transaction is called by the Generate Health Certificate service when a new Submit Health Event is accepted. The transaction stores the resulting [DDCC Document](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html). To learn more about this transaction, refer to the [Store Health Certificate workflow in the WHO DDCC:VS Implementation Guide](https://worldhealthorganization.github.io/ddcc/transactions.html#store-health-certificate).
 
 The following assertions are made for this transaction:
 
@@ -125,4 +126,4 @@ The following assertions are made for this transaction:
 - Invalid Transactions
   - 400 Error: When a POST request is sent to `[base]/Bundle` that fails the basic FHIR validation rules, the response should return 400 status.
   - 404 Error: When a POST request is sent to `[base]/Bundle` with a JSON body that contains an invalid resource type, or a POST request is sent to an invalid endpoint, the response should return 404 status.
-  - 422 Error: When a POST request is sent to `[base]/Bundle` that does not conform to the [DDCC Document profile](http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCDocument), the response should return 422 status.
+  - 422 Error: When a POST request is sent to `[base]/Bundle` that does not conform to the [DDCC Document profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html), the response should return 422 status.
