@@ -4,10 +4,15 @@ const { like, oneOf } = require('pactum-matchers');
 const operationOutcomeRequired = require('../fixtures/OperationOutcome/OperationOutcome-required.json');
 const operationOutcomeNotFound = require('../fixtures/OperationOutcome/OperationOutcome-not-found.json');
 const operationOutcomeInvalid = require('../fixtures/OperationOutcome/OperationOutcome-invalid.json');
-const sheResponse = require('../fixtures/Bundle-DDCC-TX-SHE-response-example-1.json');
-const ddccDocument = require('../fixtures/Bundle-DDCC-Document-example.json');
-const rhcResponse = require('../fixtures/Response-ProvideDDCCDocument.json');
-const storeHCRetrieveResults = require('../fixtures/Bundle-DDCCDocument.json');
+const sheResponse = require('../fixtures/submitHealthEvent/Bundle-DDCC-TX-SHE-response-example-1.json');
+const sheResponseArabic = require('../fixtures/submitHealthEvent/language-response-examples/Bundle-DDCC-TX-SHE-response-example-Arabic.json');
+const sheResponseChinese = require('../fixtures/submitHealthEvent/language-response-examples/Bundle-DDCC-TX-SHE-response-example-Chinese.json');
+const sheResponseFrench = require('../fixtures/submitHealthEvent/language-response-examples/Bundle-DDCC-TX-SHE-response-example-French.json');
+const sheResponseRussian = require('../fixtures/submitHealthEvent/language-response-examples/Bundle-DDCC-TX-SHE-response-example-Russian.json');
+const sheResponseSpanish = require('../fixtures/submitHealthEvent/language-response-examples/Bundle-DDCC-TX-SHE-response-example-Spanish.json');
+const ddccDocumentSigned = require('../fixtures/generateHealthCertificate/Bundle-DDCC-Document-signed.json');
+const rhcResponse = require('../fixtures/registerHealthCertificate/Response-ProvideDDCCDocument.json');
+const storeHCRetrieveResults = require('../fixtures/storeHealthCertificate/Bundle-DDCCDocument-unsigned.json');
 
 const config = {
   setup() {
@@ -47,6 +52,96 @@ const config = {
         },
       },
       {
+        id: 'submitValidArabicHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-Arabic',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseArabic,
+        },
+      },
+      {
+        id: 'submitValidChineseHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-Chinese',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseChinese,
+        },
+      },
+      {
+        id: 'submitValidFrenchHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-French',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseFrench,
+        },
+      },
+      {
+        id: 'submitValidRussianHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-Russian',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseRussian,
+        },
+      },
+      {
+        id: 'submitValidSpanishHealthEvent',
+        strict: false,
+        request: {
+          method: 'POST',
+          path: '/submitHealthEvent',
+          body: {
+            resourceType: 'Bundle',
+            id: 'DDCC-TX-SHE-bundle-example-Spanish',
+            type: 'batch',
+            entry: like([{ resource: { resourceType: 'Parameters' } }]),
+          },
+        },
+        response: {
+          status: 201,
+          body: sheResponseSpanish,
+        },
+      },
+      {
         id: 'storeInvalidHealthCertificate-400',
         strict: false,
         request: {
@@ -80,7 +175,7 @@ const config = {
         },
         response: {
           status: 201,
-          body: ddccDocument,
+          body: ddccDocumentSigned,
         },
       },
       {
