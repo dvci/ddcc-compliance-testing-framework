@@ -22,7 +22,7 @@ Feature: Submit Health Event
   # Language-specific Scenarios
 
   @SubmitArabicHealthEvent
-  Scenario: Submit Arabic Health Event
+  Scenario: Submit Valid Arabic Health Event
     Given I make a POST request to /submitHealthEvent
       And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-Arabic.json
      When I receive a response
@@ -31,7 +31,7 @@ Feature: Submit Health Event
       And I expect response should have a json body like the file at ./features/fixtures/submitHealthEvent/language-responses/SubmitArabicHealthEvent-response.json
 
   @SubmitChineseHealthEvent
-  Scenario: Submit Chinese Health Event
+  Scenario: Submit Valid Chinese Health Event
     Given I make a POST request to /submitHealthEvent
       And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-Chinese.json
      When I receive a response
@@ -40,7 +40,7 @@ Feature: Submit Health Event
       And I expect response should have a json body like the file at ./features/fixtures/submitHealthEvent/language-responses/SubmitChineseHealthEvent-response.json
 
   @SubmitFrenchHealthEvent
-  Scenario: Submit French Health Event
+  Scenario: Submit Valid French Health Event
     Given I make a POST request to /submitHealthEvent
       And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-French.json
      When I receive a response
@@ -49,7 +49,7 @@ Feature: Submit Health Event
       And I expect response should have a json body like the file at ./features/fixtures/submitHealthEvent/language-responses/SubmitFrenchHealthEvent-response.json
 
   @SubmitRussianHealthEvent
-  Scenario: Submit Russian Health Event
+  Scenario: Submit Valid Russian Health Event
     Given I make a POST request to /submitHealthEvent
       And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-Russian.json
      When I receive a response
@@ -58,7 +58,7 @@ Feature: Submit Health Event
       And I expect response should have a json body like the file at ./features/fixtures/submitHealthEvent/language-responses/SubmitRussianHealthEvent-response.json
 
   @SubmitSpanishHealthEvent
-  Scenario: Submit Spanish Health Event
+  Scenario: Submit Valid Spanish Health Event
     Given I make a POST request to /submitHealthEvent
       And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-Spanish.json
      When I receive a response

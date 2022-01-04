@@ -52,7 +52,7 @@ const config = {
         },
       },
       {
-        id: 'submitArabicHealthEvent',
+        id: 'submitValidArabicHealthEvent',
         strict: false,
         request: {
           method: 'POST',
@@ -70,7 +70,7 @@ const config = {
         },
       },
       {
-        id: 'submitChineseHealthEvent',
+        id: 'submitValidChineseHealthEvent',
         strict: false,
         request: {
           method: 'POST',
@@ -88,7 +88,7 @@ const config = {
         },
       },
       {
-        id: 'submitFrenchHealthEvent',
+        id: 'submitValidFrenchHealthEvent',
         strict: false,
         request: {
           method: 'POST',
@@ -106,7 +106,7 @@ const config = {
         },
       },
       {
-        id: 'submitRussianHealthEvent',
+        id: 'submitValidRussianHealthEvent',
         strict: false,
         request: {
           method: 'POST',
@@ -124,7 +124,7 @@ const config = {
         },
       },
       {
-        id: 'submitSpanishHealthEvent',
+        id: 'submitValidSpanishHealthEvent',
         strict: false,
         request: {
           method: 'POST',
