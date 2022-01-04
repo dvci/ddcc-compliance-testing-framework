@@ -82,6 +82,13 @@ The following assertions are made for this transaction:
 - Valid Transaction: When a valid Health Event Request is sent via POST to `[base]/submitHealthEvent`, the response should:
   - Return 201 status.
   - Return a response body that maintains elements from the request such as the DDCCDocument HCID, DDCCPatient name and birthdate, and DDCCImmunization vaccine information.
+- Valid Language Transactions: The same valid transaction response assertions listed above can also be checked for requests with information in different languages. The ddcc-compliance-testing-framework currently supports testing scenarios for the following languages:
+  - English
+  - Arabic
+  - Chinese
+  - French
+  - Russian
+  - Spanish
 - Invalid Transaction (422 Error): When a Health Event Request is sent via POST to `[base]/submitHealthEvent` that does not conform to the [DDCCSubmitHealthEventRequest profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCSubmitHealthEventRequest.html), the response should return 422 status.
 
 #### Generate Health Certificate
