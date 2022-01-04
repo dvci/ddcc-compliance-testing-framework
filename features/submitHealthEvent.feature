@@ -24,7 +24,7 @@ Feature: Submit Health Event
   @SubmitArabicHealthEvent
   Scenario: Submit Arabic Health Event
     Given I make a POST request to /submitHealthEvent
-      And I set json body to the file at ./features/fixtures/submitHealthEvent/languages/Bundle-DDCC-TX-SHE-bundle-example-Arabic.json
+      And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-Arabic.json
      When I receive a response
      Then I expect response should have a status 201
       And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse
@@ -33,7 +33,7 @@ Feature: Submit Health Event
   @SubmitChineseHealthEvent
   Scenario: Submit Chinese Health Event
     Given I make a POST request to /submitHealthEvent
-      And I set json body to the file at ./features/fixtures/submitHealthEvent/languages/Bundle-DDCC-TX-SHE-bundle-example-Chinese.json
+      And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-Chinese.json
      When I receive a response
      Then I expect response should have a status 201
       And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse
@@ -42,7 +42,7 @@ Feature: Submit Health Event
   @SubmitFrenchHealthEvent
   Scenario: Submit French Health Event
     Given I make a POST request to /submitHealthEvent
-      And I set json body to the file at ./features/fixtures/submitHealthEvent/languages/Bundle-DDCC-TX-SHE-bundle-example-French.json
+      And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-French.json
      When I receive a response
      Then I expect response should have a status 201
       And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse
@@ -51,7 +51,7 @@ Feature: Submit Health Event
   @SubmitRussianHealthEvent
   Scenario: Submit Russian Health Event
     Given I make a POST request to /submitHealthEvent
-      And I set json body to the file at ./features/fixtures/submitHealthEvent/languages/Bundle-DDCC-TX-SHE-bundle-example-Russian.json
+      And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-Russian.json
      When I receive a response
      Then I expect response should have a status 201
       And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse
@@ -60,7 +60,7 @@ Feature: Submit Health Event
   @SubmitSpanishHealthEvent
   Scenario: Submit Spanish Health Event
     Given I make a POST request to /submitHealthEvent
-      And I set json body to the file at ./features/fixtures/submitHealthEvent/languages/Bundle-DDCC-TX-SHE-bundle-example-Spanish.json
+      And I set json body to the file at ./features/fixtures/submitHealthEvent/language-requests/Bundle-DDCC-TX-SHE-bundle-example-Spanish.json
      When I receive a response
      Then I expect response should have a status 201
       And I expect response should validate against the profile http://worldhealthorganization.github.io/ddcc/StructureDefinition/DDCCSubmitHealthEventResponse
