@@ -41,8 +41,10 @@ jobs:
 
     - run: npm run lint
 
-    - run: |
-        npm run test
-        docker logs "${{ job.services.fhir-validator-service.id }}"
+    - run: npm run test
       env:
         CI: true
+
+    - name: Dump docker logs on failure
+      if: failure()
+      run: docker logs "${{ job.services.fhir-validator-service.id }}"       
