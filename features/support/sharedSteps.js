@@ -24,7 +24,7 @@ Then(
     if (response.statusCode !== 200) {
       return Promise.reject(
         new Error(
-          `Error executing FHIR validator service: ${response.statusMessage}`
+          `FHIR validator service - ${response.statusMessage}: ${response.body}`
         )
       );
     }
