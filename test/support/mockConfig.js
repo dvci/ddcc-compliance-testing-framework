@@ -174,7 +174,7 @@ const config = {
           },
         },
         response: {
-          status: 201,
+          status: 200,
           body: ddccDocumentSigned,
         },
       },
