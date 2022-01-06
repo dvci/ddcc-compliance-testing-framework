@@ -41,6 +41,8 @@ jobs:
 
     - run: npm run lint
 
-    - run: npm run test
+    - run: |
+        npm run test
+        docker logs "${{ job.services.fhir-validator-service.id }}"
       env:
         CI: true
