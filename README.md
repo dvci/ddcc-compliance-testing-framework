@@ -2,38 +2,35 @@
 
 DDCC Compliance Testing Framework using [Gherkin test](https://cucumber.io/docs/gherkin/) scenarios.
 
-## Prerequisites
+## Quick start
+
+### Prerequisites
 
 - [NPM](https://docs.npmjs.com)
 - [Docker (optional)](https://docs.docker.com/get-docker/)
 
-## Running Tests
-
 ### Run compliance tests
 
 ```sh
+npm install
 npm start
 ```
 
-### Run Cucumber unit tests locally using mock server
-
-Test configuration is provided in the `.env.test` file. If the validator service is not available on port 4567, remove or edit the `VALIDATOR_SERVICE_URL` default variable.
-
-```sh
-npm run test
-```
-
-After running the unit tests, open `cucumber-report.html` for a detailed report of the unit test results.
+After running the tests, open `cucumber-report.html` for a detailed report of the test results.
 
 ### Run FHIR Validator Service (optional)
 
-Starts FHIR validator service in Docker on port 4567. An updated FHIR IG package.tgz must be included in the /igs folder at service initialization.
+Starts FHIR validator service in Docker on port 4567. Update the `.env` file VALIDATOR_SERVICE_URL variable to http://localhost:4567/validate.
+
+An updated FHIR IG package.tgz must be included in the /igs folder at service initialization.
 
 ```sh
 docker-compose up -d validator_service
 ```
 
-Alternatively, you may choose to use the matchbox service on port 8080 for validation. You will need to update the `.env.test` file with the appropriate URL.
+Alternatively, you may choose to use the matchbox service on port 8080 for validation. 
+
+You will need to update the `.env` file VALIDATOR_SERVICE_URL variable to http://localhost:8080/matchbox/fhir/$validate.
 
 ```sh
 docker-compose up -d matchbox
@@ -50,6 +47,16 @@ docker-compose up -d matchbox
 | VALIDATOR_SERVICE_URL  | Optional FHIR Validator Service url. If not provided, will skip validator test steps. | null                  |
 | MOCK_PORT              | If running in test mode, port to run mock server.                                     | null                  |
 
+## Unit tests
+
+### Run Cucumber unit tests locally using mock server
+
+Test configuration is provided in the `.env.test` file. If the validator service is not available on port 4567, remove or edit the `VALIDATOR_SERVICE_URL` variable default value.
+
+```sh
+npm run test
+```
+
 ## Validation Details
 
 For each of the defined transactions, the following elements are validated using Gherkin test scenarios:
@@ -59,6 +66,8 @@ For each of the defined transactions, the following elements are validated using
 - Additional content validation that aligns with the transaction specifications, using the [PactumJS API Testing Tool](https://pactumjs.github.io/#/)
 - Response creates resource at specified location (if applicable for the transaction)
 - Error conditions are satisfied (if applicable for the transaction)
+
+The test framework does not perform cleanup steps or delete operations after execution. It is assumed that data services will reset between test runs.
 
 ## Transaction Details
 
@@ -99,7 +108,7 @@ To learn more about this transaction, refer to the [Generate Health Certificate 
 The following assertions are made for this transaction:
 
 - Valid Transaction: When a valid Generate Health Certificate Request is sent via POST to `[base]/QuestionnaireResponse/$generateHealthCertificate`, the response should:
-  - Return 201 status.
+  - Return 200 status.
   - Return a valid [DDCCDocument resource](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCDocument.html) as the response body.
   - Contain a valid signature element as a part of the DDCCDocument response.
 - Invalid Transaction (422 Error): When a Generate Health Certificate Request is sent via POST to `[base]/QuestionnaireResponse/$generateHealthCertificate` that does not conform to the [DCCCGenerateHealthCertificateParameters profile](https://worldhealthorganization.github.io/ddcc/StructureDefinition-DDCCGenerateHealthCertificateParameters.html), the response should return 422 status.
