@@ -1,9 +1,8 @@
 /* eslint-disable prefer-arrow-callback, no-underscore-dangle */
 
 const pactum = require('pactum');
-const { expression } = require('pactum-matchers');
 const { Given, Then } = require('@cucumber/cucumber');
-const { expect } = require('chai');
+const { expect, assert } = require('chai');
 const fs = require('fs');
 
 Given(/I set json body to the file at (.*)$/, function (fixture) {
@@ -30,19 +29,13 @@ Then(
       );
     }
 
-    pactum
-      .expect(response)
-      .to.have.jsonMatch(
-        'issue[*].severity',
-        expression(null, '!$V.includes("fatal")')
-      );
-    pactum
-      .expect(response)
-      .to.have.jsonMatch(
-        'issue[*].severity',
-        expression(null, '!$V.includes("error")')
-      );
-    return Promise.resolve();
+    const responsePromises = response.json.issue.map(
+      async (issue) => {
+        assert.notStrictEqual(issue.severity, 'error', JSON.stringify(issue));
+        assert.notStrictEqual(issue.severity, 'fatal', JSON.stringify(issue));
+      }
+    );
+    return Promise.all(responsePromises);
   }
 );
 
@@ -61,6 +54,7 @@ Then(
     const response = await pactum
       .spec()
       .get(this.spec._response.headers.location);
+    // performs partial, non-strict json matching
     pactum.expect(response).to.have.jsonLike(JSON.parse(json));
   }
 );
