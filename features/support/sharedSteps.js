@@ -22,7 +22,7 @@ Then(
       .withJson(this.spec._response.json);
 
     if (response.statusCode !== 200) {
-      Promise.reject(
+      return Promise.reject(
         new Error(
           `Error executing FHIR validator service: ${response.statusMessage}`
         )
