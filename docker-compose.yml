@@ -2,6 +2,7 @@ version: '3'
 
 services:
   validator_service:
+    container_name: fhir-validator-service
     image: infernocommunity/fhir-validator-service
     environment:
       DISABLE_TX: 'false'

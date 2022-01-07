@@ -49,4 +49,4 @@ jobs:
 
     - name: Dump docker logs on failure
       if: failure()
-      run: docker logs validator_service    
+      run: docker logs fhir-validator-service    
