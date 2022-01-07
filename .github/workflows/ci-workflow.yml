@@ -45,7 +45,7 @@ jobs:
 
     - run: npm run test
       env:
-        VALIDATOR_SERVICE_URL: http://fhir-validator-service:4567/validate
+        VALIDATOR_SERVICE_URL: http://fhir-validator-service/validate
         CI: true
 
     - name: Dump docker logs on failure
