@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - run: docker-compose up -d validator_service
+    - run: docker-compose up -d matchbox
 
     - uses: actions/setup-node@v1
       with:
@@ -25,8 +25,9 @@ jobs:
 
     - run: npm run test
       env:
+        VALIDATOR_SERVICE_URL: http://localhost:8080/matchbox/fhir/$validate
         CI: true
 
     - name: Dump docker logs on failure
       if: failure()
-      run: docker logs fhir-validator-service
+      run: docker logs matchbox
