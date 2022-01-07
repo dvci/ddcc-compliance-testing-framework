@@ -12,6 +12,7 @@ services:
       - "4567:4567"
 
   matchbox:
+    container_name: matchbox
     image: eu.gcr.io/fhir-ch/matchbox:v141
     environment:
       - hapi.fhir.implementationguides.0.name=hl7.fhir.uv.sdc
