@@ -25,6 +25,7 @@ jobs:
 
     - run: npm run test
       env:
+        VALIDATOR_SERVICE_URL: http://localhost:8080/matchbox/fhir/$validate
         CI: true
 
     - name: Dump docker logs on failure
