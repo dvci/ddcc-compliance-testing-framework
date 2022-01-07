@@ -6,15 +6,15 @@ jobs:
   verify:
     name: Run Lint and Tests
     runs-on: ubuntu-latest
-    services:
-      fhir-validator-service:
-        image: infernocommunity/fhir-validator-service
-        env:
-          DISABLE_TX: 'false'
-        volumes:
-          - /igs:/home/igs
-        ports:
-          - 4567:4567
+ #   services:
+ #     fhir-validator-service:
+ #       image: infernocommunity/fhir-validator-service
+ #       env:
+ #         DISABLE_TX: 'false'
+ #       volumes:
+ #         - /igs:/home/igs
+ #       ports:
+ #         - 4567:4567
       # matchbox:
       #   image: eu.gcr.io/fhir-ch/matchbox:v141
       #   env:
@@ -33,10 +33,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - run: docker-compose up -d validator_service
+
     - uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-
+    
     - run: npm install
 
     - run: npm run lint
@@ -47,4 +49,4 @@ jobs:
 
     - name: Dump docker logs on failure
       if: failure()
-      run: docker logs "${{ job.services.fhir-validator-service.id }}"       
+      run: docker logs validator_service    
