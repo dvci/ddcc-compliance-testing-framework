@@ -33,7 +33,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - run: docker-compose up validator_service
+    - run: docker-compose up -d validator_service
 
     - uses: actions/setup-node@v1
       with:
