@@ -6,29 +6,6 @@ jobs:
   verify:
     name: Run Lint and Tests
     runs-on: ubuntu-latest
-#    services:
-#      fhir-validator-service:
-#        image: infernocommunity/fhir-validator-service
-#        env:
-#          DISABLE_TX: 'false'
-#        volumes:
-#          - /igs:/home/igs  
-#        ports:
-#          - 4567:4567
-      # matchbox:
-      #   image: eu.gcr.io/fhir-ch/matchbox:v141
-      #   env:
-      #     hapi.fhir.implementationguides.0.name: hl7.fhir.uv.sdc
-      #     hapi.fhir.implementationguides.0.version: 2.7.0
-      #     hapi.fhir.implementationguides.1.name: ihe.mhd.fhir
-      #     hapi.fhir.implementationguides.1.version: 4.0.1 
-      #     hapi.fhir.implementationguides.2.url: https://worldhealthorganization.github.io/ddcc/refs/heads/ddcc-tr/package.tgz
-      #     hapi.fhir.implementationguides.2.name: fhir.who.ddcc-vs
-      #     hapi.fhir.implementationguides.2.version: 0.3.1
-      #     hapi.fhir.implementationguides.3.name: hl7.fhir.uv.ips
-      #     hapi.fhir.implementationguides.3.version: 1.0.0  
-      #   ports:
-      #     - 8080:8080 
      
     steps:
     - uses: actions/checkout@v1
@@ -43,9 +20,8 @@ jobs:
 
     - run: npm run lint
 
-    - name: Sleep for 30 seconds
+    - name: Wait for validator to load IGs
       run: sleep 30s
-      shell: bash
 
     - run: npm run test
       env:
