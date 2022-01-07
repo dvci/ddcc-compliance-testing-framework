@@ -21,7 +21,7 @@ jobs:
     - run: npm run lint
 
     - name: Wait for validator to load IGs
-      run: sleep 30s
+      run: sleep 60s
 
     - run: npm run test
       env:
