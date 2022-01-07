@@ -11,8 +11,9 @@ jobs:
         image: infernocommunity/fhir-validator-service
         env:
           DISABLE_TX: 'false'
-        volumes:
-          - ${{ github.workspace }}/igs:/home/igs
+#        volumes:
+#          - /igs:/home/igs
+        options: -v /igs:/home/igs        
         ports:
           - 4567:4567
       # matchbox:
